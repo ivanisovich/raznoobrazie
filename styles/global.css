@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    font-family: 'GoshaSans', sans-serif;
+    background: #502c2c;
+}
+
+:root{
+    --color-red: #C41E3A;
+    --color-blue: #8000FF;
+    --color-white: #FFFFFF;
+    --color-green: #097441;
+    --color-yellow: #FDB600;
+    --color-orange: #FC5812;
+}
+
+
+@font-face {
+    font-family: 'GoshaSans'; /* Name your font */
+    src: url('./fonts/GoshaSans-Regular.otf') format('otf'), /* Define the font file and format */
+}
+
+
+svg,
+img,
+object{
+    width: 100%;
+}
+
+.purple{
+    color: var(--color-blue);
+}
+
+.purple-bg{
+    background:  var(--color-blue);;
+}
+
+.green{
+    color: var(--color-green);
+}
+
+.green-bg{
+    background: var(--color-green);
+}
+
+.yellow{
+    color: var(--color-yellow);
+}
+
+.yellow-bg{
+    background: var(--color-yellow);
+}
+
+.orange{
+    color: var(--color-orange);
+}
+
+.orange-bg{
+    background:  var(--color-orange);;
+}

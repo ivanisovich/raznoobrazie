@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAZNOOBRAZIE</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/cube.css" />
+  <link rel="stylesheet" href="./styles/first-screen.css">
+  <link rel="stylesheet" href="./styles/flip-cards.css" />
+  <link rel="stylesheet" href="./styles/maze.css">
+  <link rel="stylesheet" href="./styles/tetris.css">
+  <link rel="stylesheet" href="./styles/tetris-text.css">
+  <link rel="stylesheet" href="./styles/face.css">
+  <link rel="stylesheet" href="./styles/draw-section.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/puzzle.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons//favicon-16x16.png">
+  <link rel="manifest" href="./images/favicons//site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <div class="first-screen">
+    <div class="cube-container">
+      <div class="rubiks-cube">
+        <div class="top-clone">
+          <div class="column-face top clone-left">
+            <div class="left-one"></div>
+            <div class="left-two"></div>
+            <div class="left-three"></div>
+          </div>
+          <div class="column-face top clone-middle">
+            <div class="middle-one"></div>
+            <div class="middle-two"></div>
+            <div class="middle-three"></div>
+          </div>
+          <div class="column-face top clone-right">
+            <div class="right-one"></div>
+            <div class="right-two"></div>
+            <div class="right-three"></div>
+          </div>
+        </div>
+        <div class="top-row">
+          <div class="row-face front">
+            <div class="front-one"></div>
+            <div class="front-two"></div>
+            <div class="front-three"></div>
+          </div>
+          <div class="row-face left">
+            <div class="left-one"></div>
+            <div class="left-two"></div>
+            <div class="left-three"></div>
+          </div>
+          <div class="row-face back">
+            <div class="back-one"></div>
+            <div class="back-two"></div>
+            <div class="back-three"></div>
+          </div>
+          <div class="row-face right">
+            <div class="right-one"></div>
+            <div class="right-two"></div>
+            <div class="right-three"></div>
+          </div>
+        </div>
+        <div class="middle-row">
+          <div class="row-face front">
+            <div class="front-one"></div>
+            <div class="front-two"></div>
+            <div class="front-three"></div>
+          </div>
+          <div class="row-face left">
+            <div class="left-one"></div>
+            <div class="left-two"></div>
+            <div class="left-three"></div>
+          </div>
+          <div class="row-face back">
+            <div class="back-one"></div>
+            <div class="back-two"></div>
+            <div class="back-three"></div>
+          </div>
+          <div class="row-face right">
+            <div class="right-one"></div>
+            <div class="right-two"></div>
+            <div class="right-three"></div>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <div class="row-face right">
+            <div class="right-one"></div>
+            <div class="right-two"></div>
+            <div class="right-three"></div>
+          </div>
+          <div class="row-face left">
+            <div class="left-one"></div>
+            <div class="left-two"></div>
+            <div class="left-three"></div>
+          </div>
+        </div>
+        <div class="left-column">
+          <div class="column-face front">
+            <div class="front-one"></div>
+            <div class="front-two"></div>
+            <div class="front-three"></div>
+          </div>
+          <div class="column-face back">
+            <div class="back-one"></div>
+            <div class="back-two"></div>
+            <div class="back-three"></div>
+          </div>
+          <div class="column-face bottom">
+            <div class="bottom-one"></div>
+            <div class="bottom-two"></div>
+            <div class="bottom-three"></div>
+          </div>
+        </div>
+        <div class="middle-column">
+          <div class="column-face front">
+            <div class="front-one"></div>
+            <div class="front-two"></div>
+            <div class="front-three"></div>
+          </div>
+          <div class="column-face top">
+            <div class="top-one"></div>
+            <div class="top-two"></div>
+            <div class="top-three"></div>
+          </div>
+          <div class="column-face back">
+            <div class="back-one"></div>
+            <div class="back-two"></div>
+            <div class="back-three"></div>
+          </div>
+          <div class="column-face bottom">
+            <div class="bottom-one"></div>
+            <div class="bottom-two"></div>
+            <div class="bottom-three"></div>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="column-face front">
+            <div class="front-one"></div>
+            <div class="front-two"></div>
+            <div class="front-three"></div>
+          </div>
+          <div class="column-face back">
+            <div class="back-one"></div>
+            <div class="back-two"></div>
+            <div class="back-three"></div>
+          </div>
+          <div class="column-face bottom">
+            <div class="bottom-one"></div>
+            <div class="bottom-two"></div>
+            <div class="bottom-three"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="first-screen__inner">
+      <div class="cells">
+        <div class="cell">
+          <div id="eye"></div>
+        </div>
+        <div class="cell">
+          <div id="brow"></div>
+        </div>
+        <div class="cell">
+          <div id="mouth"></div>
+        </div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell">
+          <img src="./images/nose-blue.svg" alt="" />
+        </div>
+        <div class="cell">
+          <img src="./images/ear.svg" alt="" />
+        </div>
+        <div class="cell">
+          <div id="nose"></div>
+        </div>
+        <div id="mustache"></div>
+      </div>
+
+      <div class="slogan">
+        <span>меняй</span>
+        <span>свой</span>
+        <span>облик</span>
+        <span>забудь</span>
+        <span>о</span>
+        <span>скучной</span>
+        <span>рутине</span>
+        <span>позволь</span>
+        <span>себе</span>
+        <span>стать</span>
+        <span>другим</span>
+      </div>
+    </div>
+  </div>
+
+  <svg class="eyes" viewBox="0 0 5785 756" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_77_6478)">
+      <rect width="5801.85" height="754.932" transform="translate(-5 0.640625)" fill="black" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M382.145 550.985C319.619 487.344 154.667 359.614 -5.00085 357.752C-164.669 359.614 -329.62 487.344 -392.147 550.985H-392.156C-392.155 550.987 -392.153 550.988 -392.152 550.99C-392.153 550.991 -392.155 550.993 -392.156 550.994H-392.147C-329.62 614.635 -164.669 742.366 -5.00085 744.227C154.667 742.366 319.619 614.635 382.145 550.994H382.154C382.153 550.993 382.151 550.991 382.15 550.99C382.151 550.988 382.153 550.987 382.154 550.985H382.145Z"
+        fill="#097441" />
+      <circle data-max-radius="50" cx1="-4.99953" cy1="551.343" class="eye" cx="-4.99953" cy="551.343" r="127.416"
+        fill="white" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M1131.63 703.771C1069.11 640.13 904.156 512.4 744.487 510.538C584.819 512.4 419.868 640.13 357.341 703.771H357.332C357.334 703.773 357.335 703.774 357.337 703.776C357.335 703.777 357.334 703.779 357.332 703.78H357.341C419.868 767.422 584.819 895.152 744.487 897.013C904.156 895.152 1069.11 767.422 1131.63 703.78H1131.64C1131.64 703.779 1131.64 703.777 1131.64 703.776C1131.64 703.774 1131.64 703.773 1131.64 703.771H1131.63Z"
+        fill="white" />
+      <circle data-max-radius="50" cx1="744.491" cy1="704.129" class="eye" cx="744.491" cy="704.129" r="127.416"
+        fill="#FDB600" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M2292.92 378.1C2175.83 258.927 1866.95 19.7438 1567.96 16.2578C1268.97 19.7438 960.088 258.927 843.002 378.1H842.984C842.987 378.103 842.99 378.106 842.993 378.109C842.99 378.111 842.987 378.114 842.984 378.117H843.002C960.088 497.29 1268.97 736.473 1567.96 739.959C1866.95 736.473 2175.83 497.29 2292.92 378.117H2292.93C2292.93 378.114 2292.93 378.111 2292.93 378.109C2292.93 378.106 2292.93 378.103 2292.93 378.1H2292.92Z"
+        fill="#8000FF" />
+      <circle data-max-radius="50" cx1="1567.96" cy1="378.771" class="eye" cx="1567.96" cy="378.771" r="238.596"
+        fill="#FDB600" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M4835.91 451.112C4746.07 359.67 4509.06 176.145 4279.65 173.471C4050.23 176.145 3813.23 359.67 3723.39 451.112H3723.38C3723.38 451.114 3723.38 451.116 3723.38 451.118C3723.38 451.121 3723.38 451.123 3723.38 451.125H3723.39C3813.23 542.567 4050.23 726.092 4279.65 728.766C4509.06 726.092 4746.07 542.567 4835.91 451.125H4835.92C4835.92 451.123 4835.92 451.121 4835.92 451.119C4835.92 451.116 4835.92 451.114 4835.92 451.112H4835.91Z"
+        fill="#FC5812" />
+      <circle data-max-radius="50" cx1="4279.65" cy1="451.627" class="eye" cx="4279.65" cy="451.627" r="183.075"
+        fill="white" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M904.945 217.426C841.784 120.897 675.143 -72.8559 513.839 -75.6797C352.536 -72.8559 185.895 120.897 122.734 217.426L122.731 217.426C122.731 217.427 122.732 217.428 122.732 217.429C122.732 217.43 122.731 217.43 122.731 217.431L122.734 217.431C185.895 313.96 352.536 507.713 513.839 510.537C675.143 507.713 841.784 313.96 904.945 217.431L904.948 217.431C904.948 217.43 904.947 217.43 904.947 217.429C904.947 217.428 904.948 217.427 904.948 217.426L904.945 217.426Z"
+        fill="white" />
+      <circle data-max-radius="50" cx1="513.842" cy1="214.983" class="eye" cx="513.842" cy="214.983" r="176.905"
+        fill="#8000FF" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M3723.37 378.107C3643.51 256.064 3432.83 11.0975 3228.89 7.52734C3024.95 11.0975 2814.26 256.064 2734.4 378.107L2734.4 378.107C2734.4 378.108 2734.4 378.109 2734.4 378.11C2734.4 378.111 2734.4 378.112 2734.4 378.113L2734.4 378.113C2814.26 500.157 3024.95 745.123 3228.89 748.693C3432.83 745.123 3643.51 500.157 3723.37 378.114L3723.37 378.114C3723.37 378.112 3723.37 378.111 3723.37 378.11C3723.37 378.109 3723.37 378.108 3723.37 378.107L3723.37 378.107Z"
+        fill="#097441" />
+      <circle data-max-radius="50" cx1="3228.89" cy1="375.021" class="eye" cx="3228.89" cy="375.021" r="223.664"
+        fill="white" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M5086.01 79.9582C5040.15 -0.384989 4919.14 -161.65 4802.01 -164C4684.88 -161.65 4563.87 -0.384994 4518 79.9582L4518 79.9582C4518 79.9589 4518 79.9597 4518 79.9604C4518 79.9612 4518 79.962 4518 79.9627L4518 79.9627C4563.87 160.306 4684.88 321.571 4802.01 323.921C4919.14 321.571 5040.15 160.306 5086.01 79.9627L5086.02 79.9627C5086.02 79.962 5086.02 79.9612 5086.02 79.9604C5086.02 79.9597 5086.02 79.9589 5086.02 79.9582L5086.01 79.9582Z"
+        fill="#8000FF" />
+      <ellipse data-max-radius="50" cx1="4802.01" cy1="77.9274" class="eye" cx="4802.01" cy="77.9274" rx="128.462"
+        ry="147.242" fill="white" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M6079.91 136.875C6004.91 33.3864 5807.01 -174.336 5615.46 -177.363C5423.9 -174.336 5226.01 33.3864 5151 136.875L5151 136.875C5151 136.876 5151 136.877 5151 136.878C5151 136.879 5151 136.88 5151 136.881L5151 136.881C5226.01 240.37 5423.9 448.092 5615.46 451.12C5807.01 448.092 6004.91 240.37 6079.91 136.881L6079.92 136.881C6079.92 136.88 6079.92 136.879 6079.92 136.878C6079.92 136.877 6079.92 136.876 6079.92 136.875L6079.91 136.875Z"
+        fill="white" />
+      <ellipse data-max-radius="50" cx1="5623.5" cy1="130.5" class="eye" cx="5623.5" cy="130.5" rx="218.5" ry="193.5"
+        fill="#8000FF" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M2895.91 744.222C2832.75 647.693 2666.11 453.94 2504.81 451.116C2343.5 453.94 2176.86 647.693 2113.7 744.222L2113.7 744.222C2113.7 744.223 2113.7 744.224 2113.7 744.225C2113.7 744.225 2113.7 744.226 2113.7 744.227L2113.7 744.227C2176.86 840.756 2343.5 1034.51 2504.81 1037.33C2666.11 1034.51 2832.75 840.756 2895.91 744.227L2895.92 744.227C2895.92 744.226 2895.92 744.225 2895.92 744.225C2895.92 744.224 2895.92 744.223 2895.92 744.222L2895.91 744.222Z"
+        fill="white" />
+      <circle data-max-radius="50" cx1="2504.81" cy1="741.782" class="eye" cx="2504.81" cy="741.782" r="176.905"
+        fill="#FC5812" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M2895.92 107.482C2832.76 10.9537 2666.12 -182.8 2504.82 -185.624C2343.51 -182.8 2176.87 10.9537 2113.71 107.482L2113.71 107.482C2113.71 107.483 2113.71 107.484 2113.71 107.485C2113.71 107.486 2113.71 107.487 2113.71 107.487L2113.71 107.487C2176.87 204.016 2343.51 397.77 2504.82 400.593C2666.12 397.77 2832.76 204.016 2895.92 107.487L2895.92 107.487C2895.92 107.487 2895.92 107.486 2895.92 107.485C2895.92 107.484 2895.92 107.483 2895.92 107.482L2895.92 107.482Z"
+        fill="white" />
+      <circle data-max-radius="50" cx1="2504.81" cy1="105.038" class="eye" cx="2504.81" cy="105.038" r="176.905"
+        fill="#097441" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M4566.17 -75.1018C4465.05 -166.543 4198.29 -350.068 3940.07 -352.743C3681.85 -350.068 3415.09 -166.543 3313.97 -75.1018H3313.96C3313.96 -75.0996 3313.96 -75.0974 3313.96 -75.0952C3313.96 -75.093 3313.96 -75.0909 3313.96 -75.0887H3313.97C3415.09 16.3528 3681.85 199.878 3940.07 202.553C4198.29 199.878 4465.05 16.3528 4566.17 -75.0887H4566.18C4566.18 -75.0909 4566.18 -75.093 4566.18 -75.0952C4566.18 -75.0974 4566.18 -75.0996 4566.18 -75.1018H4566.17Z"
+        fill="white" />
+      <ellipse data-max-radius="50" cx1="3940.07" cy1="-74.5863" class="eye" cx="3940.07" cy="-74.5863" rx="206.06"
+        ry="183.075" fill="#FC5812" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M5589.06 560.288C5525.5 482.466 5357.83 326.276 5195.53 324C5033.24 326.276 4865.57 482.466 4802.01 560.288H4802C4802 560.289 4802 560.291 4802 560.293C4802 560.295 4802 560.297 4802 560.299H4802.01C4865.57 638.12 5033.24 794.31 5195.53 796.586C5357.83 794.31 5525.5 638.12 5589.06 560.299H5589.07C5589.07 560.297 5589.07 560.295 5589.06 560.293C5589.07 560.291 5589.07 560.289 5589.07 560.288H5589.06Z"
+        fill="white" />
+      <ellipse data-max-radius="50" cx1="5195.54" cy1="560.727" class="eye" cx="5195.54" cy="560.727" rx="129.516"
+        ry="155.806" fill="#097441" />
+    </g>
+    <defs>
+      <clipPath id="clip0_77_6478">
+        <rect width="5801.85" height="754.932" fill="white" transform="translate(-5 0.640625)" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="second-screen">
+    <div class="puzzle">
+      <img class="puzzle-text" src="./images/./puzzle-text.png" alt="" />
+      <object id="puzzle" data="./images/puzzle.svg" type="image/svg+xml">
+        Your browser does not support SVG
+      </object>
+    </div>
+    <div class="raznoobrazie">
+      <object id="raznoobrazie" data="./images/raznoobrazie.svg" type="image/svg+xml"></object>
+    </div>
+  </div>
+
+  <div class="third-sreen">
+    <div class="tetris-wrapper">
+      <div id="tetris-container">
+        <div class="tetoris-content">
+          <div class="tetoris-content__block1"></div>
+          <div class="tetoris-content__block2"></div>
+          <div class="tetoris-content__block3"></div>
+          <div class="tetoris-content__block4"></div>
+          <div class="tetoris-content__block5"></div>
+          <div class="tetoris-content__block6"></div>
+          <div class="tetoris-content__block7"></div>
+          <div class="tetoris-content__block8"></div>
+          <div class="tetoris-content__block9"></div>
+          <div class="tetoris-content__block10"></div>
+          <div class="tetoris-content__block11"></div>
+          <div class="tetoris-content__block12"></div>
+          <div class="tetoris-content__block13"></div>
+          <div class="tetoris-content__block14"></div>
+          <div class="tetoris-content__block15"></div>
+          <div class="tetoris-content__block16"></div>
+          <div class="tetoris-content__block17"></div>
+          <div class="tetoris-content__block18"></div>
+          <div class="tetoris-content__block19"></div>
+          <div class="tetoris-content__block20"></div>
+          <div class="tetoris-content__block21"></div>
+          <div class="tetoris-content__block22"></div>
+          <div class="tetoris-content__block23"></div>
+          <div class="tetoris-content__block24"></div>
+          <div class="tetoris-content__block25"></div>
+          <div class="tetoris-content__block26"></div>
+          <div class="tetoris-content__block27"></div>
+          <div class="tetoris-content__block28"></div>
+          <div class="tetoris-content__block29"></div>
+          <div class="tetoris-content__block30"></div>
+          <div class="tetoris-content__block31"></div>
+          <div class="tetoris-content__block32"></div>
+          <div class="tetoris-content__block33"></div>
+          <div class="tetoris-content__block34"></div>
+          <div class="tetoris-content__block35"></div>
+          <div class="tetoris-content__block36"></div>
+          <div class="tetoris-content__block37"></div>
+          <div class="tetoris-content__block38"></div>
+          <div class="tetoris-content__block39"></div>
+          <div class="tetoris-content__block40"></div>
+          <div class="tetoris-content__block41"></div>
+          <div class="tetoris-content__block42"></div>
+          <div class="tetoris-content__block43"></div>
+          <div class="tetoris-content__block44"></div>
+          <div class="tetoris-content__block45"></div>
+          <div class="tetoris-content__block46"></div>
+          <div class="tetoris-content__block47"></div>
+          <div class="tetoris-content__block48"></div>
+          <div class="tetoris-content__block49"></div>
+          <div class="tetoris-content__block50"></div>
+          <div class="tetoris-content__block51"></div>
+          <div class="tetoris-content__block52"></div>
+          <div class="tetoris-content__block53"></div>
+          <div class="tetoris-content__block54"></div>
+          <div class="tetoris-content__block55"></div>
+          <div class="tetoris-content__block56"></div>
+          <div class="tetoris-content__block57"></div>
+          <div class="tetoris-content__block58"></div>
+          <div class="tetoris-content__block59"></div>
+          <div class="tetoris-content__block60"></div>
+          <div class="tetoris-content__block61"></div>
+          <div class="tetoris-content__block62"></div>
+          <div class="tetoris-content__block63"></div>
+          <div class="tetoris-content__block64"></div>
+          <div class="tetoris-content__block65"></div>
+          <div class="tetoris-content__block66"></div>
+          <div class="tetoris-content__block67"></div>
+          <div class="tetoris-content__block68"></div>
+          <div class="tetoris-content__block69"></div>
+          <div class="tetoris-content__block70"></div>
+          <div class="tetoris-content__block71"></div>
+          <div class="tetoris-content__block72"></div>
+          <div class="tetoris-content__block73"></div>
+          <div class="tetoris-content__block74"></div>
+          <div class="tetoris-content__block75"></div>
+          <div class="tetoris-content__block76"></div>
+          <div class="tetoris-content__block77"></div>
+          <div class="tetoris-content__block78"></div>
+          <div class="tetoris-content__block79"></div>
+          <div class="tetoris-content__block80"></div>
+          <div class="tetoris-content__block81"></div>
+          <div class="tetoris-content__block82"></div>
+          <div class="tetoris-content__block83"></div>
+          <div class="tetoris-content__block84"></div>
+          <div class="tetoris-content__block85"></div>
+          <div class="tetoris-content__block86"></div>
+          <div class="tetoris-content__block87"></div>
+          <div class="tetoris-content__block88"></div>
+          <div class="tetoris-content__block89"></div>
+          <div class="tetoris-content__block90"></div>
+          <div class="tetoris-content__block91"></div>
+          <div class="tetoris-content__block92"></div>
+          <div class="tetoris-content__block93"></div>
+          <div class="tetoris-content__block94"></div>
+          <div class="tetoris-content__block95"></div>
+          <div class="tetoris-content__block96"></div>
+          <div class="tetoris-content__block97"></div>
+          <div class="tetoris-content__block98"></div>
+          <div class="tetoris-content__block99"></div>
+          <div class="tetoris-content__block100"></div>
+          <div class="tetoris-content__block101"></div>
+          <div class="tetoris-content__block102"></div>
+          <div class="tetoris-content__block103"></div>
+          <div class="tetoris-content__block104"></div>
+          <div class="tetoris-content__block105"></div>
+          <div class="tetoris-content__block106"></div>
+          <div class="tetoris-content__block107"></div>
+          <div class="tetoris-content__block108"></div>
+          <div class="tetoris-content__block109"></div>
+          <div class="tetoris-content__block110"></div>
+          <div class="tetoris-content__block111"></div>
+          <div class="tetoris-content__block112"></div>
+          <div class="tetoris-content__block113"></div>
+          <div class="tetoris-content__block114"></div>
+          <div class="tetoris-content__block115"></div>
+          <div class="tetoris-content__block116"></div>
+          <div class="tetoris-content__block117"></div>
+          <div class="tetoris-content__block118"></div>
+          <div class="tetoris-content__block119"></div>
+          <div class="tetoris-content__block120"></div>
+          <div class="tetoris-content__block121"></div>
+          <div class="tetoris-content__block122"></div>
+          <div class="tetoris-content__block123"></div>
+          <div class="tetoris-content__block124"></div>
+          <div class="tetoris-content__block125"></div>
+          <div class="tetoris-content__block126"></div>
+          <div class="tetoris-content__block127"></div>
+          <div class="tetoris-content__block128"></div>
+          <div class="tetoris-content__block129"></div>
+          <div class="tetoris-content__block130"></div>
+          <div class="tetoris-content__block131"></div>
+          <div class="tetoris-content__block132"></div>
+          <div class="tetoris-content__block133"></div>
+          <div class="tetoris-content__block134"></div>
+          <div class="tetoris-content__block135"></div>
+          <div class="tetoris-content__block136"></div>
+          <div class="tetoris-content__block137"></div>
+          <div class="tetoris-content__block138"></div>
+          <div class="tetoris-content__block139"></div>
+          <div class="tetoris-content__block140"></div>
+          <div class="tetoris-content__block141"></div>
+          <div class="tetoris-content__block142"></div>
+          <div class="tetoris-content__block143"></div>
+          <div class="tetoris-content__block144"></div>
+          <div class="tetoris-content__block145"></div>
+          <div class="tetoris-content__block146"></div>
+          <div class="tetoris-content__block147"></div>
+          <div class="tetoris-content__block148"></div>
+          <div class="tetoris-content__block149"></div>
+          <div class="tetoris-content__block150"></div>
+          <div class="tetoris-content__block151"></div>
+          <div class="tetoris-content__block152"></div>
+          <div class="tetoris-content__block153"></div>
+          <div class="tetoris-content__block154"></div>
+          <div class="tetoris-content__block155"></div>
+          <div class="tetoris-content__block156"></div>
+          <div class="tetoris-content__block157"></div>
+          <div class="tetoris-content__block158"></div>
+          <div class="tetoris-content__block159"></div>
+          <div class="tetoris-content__block160"></div>
+          <div class="tetoris-content__block161"></div>
+          <div class="tetoris-content__block162"></div>
+          <div class="tetoris-content__block163"></div>
+          <div class="tetoris-content__block164"></div>
+          <div class="tetoris-content__block165"></div>
+          <div class="tetoris-content__block166"></div>
+          <div class="tetoris-content__block167"></div>
+          <div class="tetoris-content__block168"></div>
+          <div class="tetoris-content__block169"></div>
+          <div class="tetoris-content__block170"></div>
+          <div class="tetoris-content__block171"></div>
+          <div class="tetoris-content__block172"></div>
+          <div class="tetoris-content__block173"></div>
+          <div class="tetoris-content__block174"></div>
+          <div class="tetoris-content__block175"></div>
+          <div class="tetoris-content__block176"></div>
+          <div class="tetoris-content__block177"></div>
+          <div class="tetoris-content__block178"></div>
+          <div class="tetoris-content__block179"></div>
+          <div class="tetoris-content__block180"></div>
+        </div>
+      </div>
+      <div class="tetris-text__wrapper">
+        <div class=" tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый</span>
+            <span>облик новый</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp; </span>
+            <span>облик новый&nbsp; </span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp;</span>
+            <span>облик новый&nbsp;</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp;</span>
+            <span>облик новый&nbsp;</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp;</span>
+            <span>облик новый&nbsp;</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp;</span>
+            <span>облик новый&nbsp;</span>
+          </div>
+        </div>
+        <div class="tetris-text">
+          <div class="tetris-text__group">
+            <span>облик новый&nbsp;</span>
+            <span>облик новый&nbsp;</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="maze">
+      <object id="maze" data="./images/maze.svg" type="image/svg+xml"></object>
+    </div>
+  </div>
+
+  <div class="face-wrapper">
+    <div class="face-parts">
+      <img class="face-parts__item" style="right: 10%; bottom: 1%; width: 17%;" src="./images/face-parts/brow1.svg" alt="">
+      <img class="face-parts__item" style="right: 33%; top:20%; width: 20%;" src="./images/face-parts/brow2.svg" alt="">
+      <img class="face-parts__item" style="right: 35%; top: 3%; width: 22%;" src="./images/face-parts/brow3.svg" alt="">
+      <img class="face-parts__item" style="right: 48%; bottom: 25%; width: 19%;" src="./images/face-parts/brow4.svg" alt="">
+      <img class="face-parts__item"  style="right:79%; bottom: 16%; width: 17%;" src="./images/face-parts/brow5.svg" alt="">
+      <img class="face-parts__item"  style="right: 37%; bottom: 47%; width: 14%;" src="./images/face-parts/eye1.svg" alt="">
+      <img class="face-parts__item"  style="right: 69%; bottom: 52%; width: 15%;" src="./images/face-parts/eye2.svg" alt="">
+      <img class="face-parts__item"  style="right: 77%; bottom: 85%; width: 14%;" src="./images/face-parts/eye3.svg" alt="">
+      <img class="face-parts__item"  style="right: 84%; bottom: 39%; width: 15%;" src="./images/face-parts/eye4.svg" alt="">
+      <img class="face-parts__item" style="right: 40%; bottom:84%; width: 14%;" src="./images/face-parts/eye5.svg" alt="">
+      <img class="face-parts__item" style="right: 3%; bottom: 77%; width: 18%;" src="./images/face-parts/eye6.svg" alt="">
+      <img class="face-parts__item" style="right: 4%; bottom: 50%; width: 7%;" src="./images/face-parts/eye7.svg" alt="">
+      <img class="face-parts__item" style="right: 4%; bottom: 27%; width: 10%;" src="./images/face-parts/eye8.svg" alt="">
+      <img class="face-parts__item" style="right: 47%; bottom: 33%; width: 12%;" src="./images/face-parts/eye9.svg" alt="">
+      <img class="face-parts__item" style="right: 8%; bottom: 84%; width: 12%;" src="./images/face-parts/ear1.svg" alt="">
+      <img class="face-parts__item" style="right: 89%; bottom: 1%; width: 10%;" src="./images/face-parts/ear2.svg" alt="">
+      <img class="face-parts__item" style="right: 6%; bottom: 49%; width: 22%;" src="./images/face-parts/ear3.svg" alt="">
+      <img class="face-parts__item" style="right: 59%; bottom: 85%; width: 10%;" src="./images/face-parts/ear4.svg" alt="">
+      <img class="face-parts__item" style="right: 86%; bottom: 47%; width: 12%;" src="./images/face-parts/ear5.svg" alt="">
+      <img class="face-parts__item" style="right: 30%; bottom: 29%; width: 12%;" src="./images/face-parts/nose1.svg" alt="">
+      <img class="face-parts__item" style="right: 85%; bottom: 65%; width: 13%;" src="./images/face-parts/nose2.svg" alt="">
+      <img class="face-parts__item" style="right: 24%; bottom: 80%; width: 11%;" src="./images/face-parts/nose3.svg" alt="">
+      <img class="face-parts__item" style="right: 30%; bottom: 2%; width: 13%;" src="./images/face-parts/nose4.svg" alt="">
+      <img class="face-parts__item" style="right: 66%; bottom: 34%; width: 17%;" src="./images/face-parts/mouth1.svg" alt="">
+      <img class="face-parts__item" style="right: 56%; bottom: 76%; width: 26%;" src="./images/face-parts/mouth2.svg" alt="">
+      <img class="face-parts__item" style="right: 2%; bottom: 10%; width: 18%;" src="./images/face-parts/mouth3.svg" alt="">
+      <img class="face-parts__item" style="right: 44%; bottom: 5%; width: 18%;" src="./images/face-parts/mouth4.svg" alt="">
+      <img class="face-parts__item" style="right: 45%; bottom: 54%; width: 18%;" src="./images/face-parts/mouth5.svg" alt="">
+      <img class="face-parts__item" style="right: 51%; bottom: 64%; width: 31%;" src="./images/face-parts/mustache1.svg" alt="">
+      <img class="face-parts__item" style="right: 47%; bottom: 44%; width: 32%;" src="./images/face-parts/mustache2.svg" alt="">
+      <img class="face-parts__item" style="right: 7%; bottom: 39%; width: 25%;" src="./images/face-parts/mustache3.svg" alt="">
+      <img class="face-parts__item" style="right: 69%; bottom: 23%; width: 28%;" src="./images/face-parts/mustache4.svg" alt="">
+      <img class="face-parts__item" style="right: 16%; bottom: 20%; width: 32%;" src="./images/face-parts/mustache5.svg" alt="">
+      <img class="face-parts__item" style="right: 62%; bottom: 1%; width: 27%;" src="./images/face-parts/mustache6.svg" alt="">
+      <img class="face-parts__item" style="right: 46%; bottom: 13%; width: 32%;" src="./images/face-parts/mustache7.svg" alt="">
+      <img class="face-parts__item" style="right: 22%; bottom: 62%; width: 24%;"  src="./images/face-parts/mustache8.svg" alt="">
+      <img class="face-parts__item" style="right: 72%; bottom: 89%; width: 26%;" src="./images/face-parts/mustache9.svg" alt="">
+    </div>
+    <div id="drop-zone" class="face">
+      <img class="drop-zone__bg" src="./images/face.svg" alt="">
+    </div>
+  </div> 
+
+  <footer class="footer">
+    <div class="draw-section">
+      <input type="color"  class="js-color-picker  color-picker">
+      <input type="range" class="js-line-range" min="1" max="72" value="6">
+      <label class="js-range-value">6</label>Px
+      <canvas class="js-paint  paint-canvas" width="600" height="600"></canvas>
+    </div> 
+    <div class="footer-wrapper">
+      <div class="footer-text">
+        <div class="footer-text_group">
+          <span class="purple">меняйся</span>
+          <span class="orange">меняйся</span>
+          <span class="green">меняйся</span>
+          <span class="yellow">меняйся</span>
+        </div>
+        <div class="footer-text_group">
+          <span class="purple">меняйся</span>
+          <span class="orange">меняйся</span>
+          <span class="green">меняйся</span>
+          <span class="yellow">меняйся</span>
+        </div>
+      </div>
+      <div class="footer-info">
+        <div class="footer-info__designed green-bg">
+          design by
+          makarova 
+          mariya
+        </div>
+        <div class="footer-info__module">
+          <span class="orange-bg">2024</span>
+          <span class="purple-bg">modul 3</span>
+          <span class="yellow-bg">б23дз10</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var mustache = lottie.loadAnimation({
+      container: document.getElementById('mustache'), // the DOM element that will contain the animation
+      renderer: 'svg', // 'svg', 'canvas', 'html' to use different rendering methods
+      loop: true, // Whether to loop the animation
+      autoplay: true, // Whether to start playing the animation automatically
+      path: './animations/mustache.json' // The path to the animation JSON file
+    });
+
+    var eye = lottie.loadAnimation({
+      container: document.getElementById('eye'), // the DOM element that will contain the animation
+      renderer: 'svg', // 'svg', 'canvas', 'html' to use different rendering methods
+      loop: true, // Whether to loop the animation
+      autoplay: true, // Whether to start playing the animation automatically
+      path: './animations/eye.json' // The path to the animation JSON file
+    });
+
+    var brow = lottie.loadAnimation({
+      container: document.getElementById('brow'), // the DOM element that will contain the animation
+      renderer: 'svg', // 'svg', 'canvas', 'html' to use different rendering methods
+      loop: true, // Whether to loop the animation
+      autoplay: true, // Whether to start playing the animation automatically
+      path: './animations/brow.json' // The path to the animation JSON file
+    });
+
+    var mouth = lottie.loadAnimation({
+      container: document.getElementById('mouth'), // the DOM element that will contain the animation
+      renderer: 'svg', // 'svg', 'canvas', 'html' to use different rendering methods
+      loop: true, // Whether to loop the animation
+      autoplay: true, // Whether to start playing the animation automatically
+      path: './animations/mouth.json' // The path to the animation JSON file
+    });
+
+    var nose = lottie.loadAnimation({
+      container: document.getElementById('nose'), // the DOM element that will contain the animation
+      renderer: 'svg', // 'svg', 'canvas', 'html' to use different rendering methods
+      loop: true, // Whether to loop the animation
+      autoplay: true, // Whether to start playing the animation automatically
+      path: './animations/nose.json' // The path to the animation JSON file
+    });
+  </script>
+
+  <!-- <script src="./scripts/maze.js"></script> -->
+  
+
+  <script src="./scripts/eyes.js"></script>
+  <script src="./scripts/puzzle.js"></script>
+  <script src="./scripts/raznoobrazie.js"></script>
+  <script src="./scripts/face.js"></script>
+  <script src="./scripts/draw-section.js"></script> 
+</body>
+
+</html>

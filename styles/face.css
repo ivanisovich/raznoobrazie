@@ -1,0 +1,36 @@
+.face-wrapper{
+    display: flex;
+}
+
+.face{
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.face-parts{
+    position: relative;
+    width: 50%;
+    background: black;
+}
+
+.face-parts img{
+    position: absolute;
+    width: 17%;
+    cursor: grab;
+}
+
+#drop-zone {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+#drop-zone img{
+    position: absolute;
+}
+
+#drop-zone .drop-zone__bg{
+    position: static;
+    height: 100%;
+    object-fit: cover;
+}

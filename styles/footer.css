@@ -1,0 +1,93 @@
+.footer{
+    display: flex;
+    align-items: center;
+    background: white;
+}
+
+.footer-wrapper{
+    width: 50%;
+}
+
+
+.footer-text{
+    background: black;
+    height: 570px;
+   
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    user-select: none;
+    overflow: hidden;
+}
+
+.footer-text:hover .footer-text_group{
+    animation-play-state: paused;
+}
+
+.footer-text_group{
+    animation: scrollBottom 7s linear infinite;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text span{
+    font-size: 12.29vw;
+    font-weight: 700;
+  
+    line-height: 9.111vw;
+}
+
+@keyframes scrollBottom {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+.footer-info{
+    display: flex;
+    color: white;
+    width: 100%;
+}
+
+.footer-info__designed{
+    font-size: 4.235vw;
+    text-align: center;
+    padding:3vw;
+}
+
+.footer-info__module{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.971vw;
+
+    text-align: center;
+}
+
+.footer-info__module span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1vw;
+}
+
+@media (max-width: 800px) {
+    .footer{
+        flex-direction: column;
+    }
+
+    .footer-wrapper{
+        width: 100%;
+    }
+
+
+    .footer-text span{
+        font-size: 24.29vw;
+        line-height: 18.2vw;
+    }
+}

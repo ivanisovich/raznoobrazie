@@ -1,0 +1,116 @@
+.tetris-text__wrapper{
+  max-width: 320px;
+  width: 30%;
+  object-fit: scale-down;
+ 
+}
+
+.tetris-text {
+    font-size: 3.317vw;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+
+}
+
+.tetris-text__wrapper:hover   span {
+  animation-play-state: paused;
+
+}
+
+
+.tetris-text__wrapper:hover :nth-child(even) span{
+  animation-play-state: paused;
+
+}
+
+
+.tetris-text__group{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+   
+}
+
+.tetris-text span {
+
+    will-change: transform;
+    padding-right: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: scrollLeft 11s linear infinite;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    list-style: none;
+   
+}
+
+.tetris-text__wrapper :nth-child(even) span{
+    animation: scrollRight 11s linear infinite;
+}
+
+@keyframes scrollLeft {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% ));
+    }
+}
+
+@keyframes scrollRight {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(calc(0));
+    }
+}
+
+.tetris-text__wrapper :nth-child(2) .tetris-text__group :nth-child(1){
+  margin-left: -42%;  
+}
+
+.tetris-text__wrapper :nth-child(4) .tetris-text__group :nth-child(1){
+  margin-left: -72%;  
+}
+
+.tetris-text__wrapper :nth-child(6) .tetris-text__group :nth-child(1){
+  margin-left: -74%;  
+}
+
+.tetris-text__wrapper :nth-child(10) .tetris-text__group :nth-child(1){
+  margin-left: -72%;  
+}
+
+.tetris-text__wrapper :nth-child(14) .tetris-text__group :nth-child(1){
+  margin-left: -77%;  
+}
+
+.tetris-text__wrapper :nth-child(3) .tetris-text__group :nth-child(1){
+     margin-left: -10%;   
+}
+
+.tetris-text__wrapper :nth-child(5) .tetris-text__group :nth-child(1){
+  margin-left: -50%;   
+} 
+
+.tetris-text__wrapper :nth-child(7) .tetris-text__group :nth-child(1){
+  margin-left: -52%;   
+} 
+
+
+.tetris-text__wrapper :nth-child(13) .tetris-text__group :nth-child(1){
+  margin-left: -42%;   
+} 
+
+
+.tetris-text__wrapper :nth-child(15) .tetris-text__group :nth-child(1){
+  margin-left: -32%;   
+} 

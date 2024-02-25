@@ -1,0 +1,251 @@
+.first-screen {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cells {
+    width: 54vh;
+    height: 54vh;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.cell {
+    width: 18vh;
+    height: 18vh;
+    position: relative;
+    z-index: 10;
+}
+
+.cells .cell:nth-child(1),
+.cells .cell:nth-child(3),
+.cells .cell:nth-child(8) {
+    background: var(--color-green);
+    ;
+}
+
+.cells .cell:nth-child(5) {
+    background: var(--color-blue);
+}
+
+.cells .cell:nth-child(6),
+.cells .cell:nth-child(2),
+.cells .cell:nth-child(7) {
+    background: var(--color-yellow);
+}
+
+.cells .cell:nth-child(4),
+.cells :nth-child(9) {
+    background: var(--color-orange);
+}
+
+
+#mustache {
+    width: 98%;
+    position: absolute;
+    top: 35%;
+    left:2%;
+    z-index: 20;
+}
+
+#brow {
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.cells img {
+    margin-top: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+.slogan {
+    background: black;
+    font-size: 129px;
+    width: 54vh;
+    height: 46vh;
+    position: relative;
+}
+
+.slogan span {
+    font-size: 6.3vw;
+    font-weight: 700;
+    position: absolute;
+    opacity: 0;
+    animation: fadein 11s ease-in-out infinite;
+}
+
+.slogan :nth-child(1),
+.slogan :nth-child(6),
+.slogan :nth-child(9) {
+    color: var(--color-blue);
+}
+
+.slogan :nth-child(2),
+.slogan :nth-child(5),
+.slogan :nth-child(7) {
+    color: var(--color-orange);
+}
+
+.slogan :nth-child(4),
+.slogan :nth-child(8),
+.slogan :nth-child(10) {
+    color: var(--color-yellow);
+}
+
+.slogan :nth-child(3),
+.slogan :nth-child(11) {
+    color: var(--color-green);
+}
+
+.slogan :nth-child(1) {
+    top: 0%;
+    left: 0%;
+
+   
+}
+
+.slogan :nth-child(2) {
+    top: 20%;
+    right: 0%;
+
+  
+    animation-delay: 1s;
+}
+
+.slogan :nth-child(3) {
+    top: 30%;
+
+
+    animation-delay: 2s;
+}
+
+.slogan :nth-child(4) {
+    top: 40%;
+
+
+    animation-delay: 3s;
+}
+
+.slogan :nth-child(5) {
+    top: 0%;
+
+    animation-delay: 4s;
+}
+
+.slogan :nth-child(6) {
+    bottom: 0%;
+    right: 0%;
+    animation-delay: 5s;
+}
+
+.slogan :nth-child(7) {
+    left: 0%;
+    top: 60%;
+
+    animation-delay: 6s;
+}
+
+.slogan :nth-child(8) {
+    top: 7%;
+
+
+    animation-delay: 7s;
+}
+
+.slogan :nth-child(9) {
+    top: 17%;
+
+
+    animation-delay: 8s;
+}
+
+.slogan :nth-child(10) {
+    top: 37%;
+    right: 0%;
+
+    animation-delay: 9s;
+}
+
+.slogan :nth-child(11) {
+    top: 67%;
+    left: 0%;
+
+    animation-delay: 10s;
+}
+
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    7% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .first-screen{
+        flex-direction: column;
+    }
+
+    .first-screen__inner{
+        margin-top: 200px;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .cells{
+        width: 51vw;
+        height: 51vw;
+    }
+
+    .cell{
+        width: 17vw;
+        height: 17vw;
+    }
+
+    .slogan{
+        width: unset;
+        flex-grow: 1;
+        height: unset;
+        
+    }
+}
+
+@media (max-width: 800px) {
+    .first-screen__inner{
+        margin-top: 0px;
+        flex-direction: column;
+    }
+
+    .cells{
+        box-sizing: border-box;
+        width: 100%;
+        height: 99vw;
+    }
+
+    .cell{
+        width: 33.33%;
+        height: 33.33%;
+    }
+
+    .slogan{
+        width: 100%;
+        height: 82vw
+    }
+    .slogan span{
+        font-size: 18vw;
+    }
+}

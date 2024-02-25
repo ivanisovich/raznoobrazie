@@ -1,0 +1,43 @@
+.second-screen{
+    display: flex;
+    margin-top: -4px;
+    align-items: stretch;
+    background: black;
+}
+
+.puzzle{
+    display: flex;
+    align-items: center;
+    flex-grow: 0.5;
+    width: 50%;
+    align-items: stretch;
+}
+
+#puzzle{
+    width: 67%
+}
+
+.puzzle-text{
+   width: 33%;
+}
+
+.raznoobrazie{
+   width: 50%;
+}
+
+
+@media (max-width: 800px) {
+    .second-screen{
+        flex-direction: column;
+    }
+
+    .puzzle{
+        width: 100%;
+    }
+
+    .raznoobrazie{
+        width: 100%;
+    }
+}
+
+
