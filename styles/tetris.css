@@ -148,6 +148,9 @@ body {
 #tetris-container .tetoris-content .tetoris-content__block53 {
     animation: flashing_orange 0.2s linear 1 6s;
 }
+#tetris-container .tetoris-content .tetoris-content__block151 {
+    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
+}
 #tetris-container .tetoris-content .tetoris-content__block141 {
     animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
 }
@@ -178,9 +181,7 @@ body {
 #tetris-container .tetoris-content .tetoris-content__block150 {
     animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block151 {
-    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
-}
+
 #tetris-container .tetoris-content .tetoris-content__block152 {
     animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }

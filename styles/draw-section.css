@@ -15,7 +15,10 @@
 .color-picker {
     margin: 1rem 1rem 0 1rem;
 }
-
+.draw-section__inner{
+    position: absolute;
+    top: 0px;
+}
 
 @media (max-width: 800px) {
     .draw-section{

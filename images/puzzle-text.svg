@@ -18,6 +18,26 @@
 .rect4.active{
     animation-delay: 0.6s
 }
+
+.rect7.active, .rect8.active {
+    animation: moveTop 5s ease-in-out infinite;
+}
+
+.rect7.active{
+    animation-delay: 0.3s;
+}
+
+.rect3.active, .rect6.active {
+    animation: moveTop 5s ease-in-out infinite;
+}
+
+.rect3.active{
+    animation-delay: 0.5s;
+}
+
+rect{
+    cursor: pointer;
+}
 @keyframes moveLeft{
     0%{
        transform:translate(0%,0%)
@@ -43,6 +63,33 @@
        transform:translate(00%,0%)
     }
 }
+
+@keyframes moveTop{
+    0%{
+       transform:translate(0%,0%)
+    }
+    50%{
+        transform:translate(0%,-100%)
+    }
+
+    100%{
+       transform:translate(0%,0%)
+    }
+}
+
+@keyframes moveDown{
+    0%{
+       transform:translate(0%,0%)
+    }
+    50%{
+        transform:translateY(100%,0%)
+    }
+
+    100%{
+       transform:translate(00%,0%)
+    }
+}
+
 </style>
 
 

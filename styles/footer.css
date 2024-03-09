@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     background: white;
+    position: relative;
 }
 
 .footer-wrapper{
@@ -27,6 +28,7 @@
 
 .footer-text_group{
     animation: scrollBottom 7s linear infinite;
+    
     display: flex;
     flex-direction: column;
 }

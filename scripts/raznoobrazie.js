@@ -7,7 +7,11 @@ puzzle.addEventListener("load", function () {
   clickableElements.forEach(function (elem) {
     elem.addEventListener("click", function () {
       console.log(elem);
-      elem.classList.add('flipped');
+      if (!elem.classList.contains("flipped")){
+        elem.classList.add('flipped');
+      } else {
+        elem.classList.remove("flipped")
+      }
     });
   });
 });
