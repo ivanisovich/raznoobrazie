@@ -6,7 +6,9 @@ puzzle.addEventListener("load", function () {
 
   clickableElements.forEach(function (elem) {
     elem.addEventListener("click", function () {
-      console.log(elem);
+      elem.classList.toggle('flipped');
+    });
+    elem.addEventListener("touchstart", function () {
       elem.classList.toggle('flipped');
     });
   });
