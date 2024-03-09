@@ -21,12 +21,14 @@ let x = 0, y = 0;
 let isMouseDown = false;
 
 const stopDrawing = () => { isMouseDown = false; };
-const startDrawing = (xCoord, yCoord) => {
+const startDrawing = event => {
     isMouseDown = true;
-    [x, y] = [xCoord, yCoord];
+    [x, y] = [event.offsetX, event.offsetY];
 };
-const drawLine = (newX, newY) => {
+const drawLine = event => {
     if (isMouseDown) {
+        const newX = event.offsetX;
+        const newY = event.offsetY;
         context.beginPath();
         context.moveTo(x, y);
         context.lineTo(newX, newY);
@@ -34,38 +36,6 @@ const drawLine = (newX, newY) => {
         [x, y] = [newX, newY];
     }
 };
-
-// Добавление обработчиков для событий касания
-paintCanvas.addEventListener('touchstart', event => {
-    const touch = event.touches[0];
-    const xCoord = touch.pageX - touch.target.offsetLeft;
-    const yCoord = touch.pageY - touch.target.offsetTop;
-    startDrawing(xCoord, yCoord);
-});
-
-paintCanvas.addEventListener('touchmove', event => {
-    event.preventDefault(); // Предотвращаем прокрутку
-    const touch = event.touches[0];
-    const xCoord = touch.pageX - touch.target.offsetLeft;
-    const yCoord = touch.pageY - touch.target.offsetTop;
-    drawLine(xCoord, yCoord);
-});
-
-paintCanvas.addEventListener('touchend', stopDrawing);
-
-// Обработчики для мыши
-paintCanvas.addEventListener('mousedown', event => {
-    startDrawing(event.offsetX, event.offsetY);
-});
-
-paintCanvas.addEventListener('mousemove', event => {
-    drawLine(event.offsetX, event.offsetY);
-});
-
-paintCanvas.addEventListener('mouseup', stopDrawing);
-paintCanvas.addEventListener('mouseout', stopDrawing);
-
-// Функция для изменения размера canvas
 const resizeCanvas = () => {
     const containerWidth = paintCanvas.parentElement.offsetWidth;
     const aspectRatio = 1 / 1;
@@ -79,6 +49,38 @@ const resizeCanvas = () => {
     context.lineWidth = lineWidthRange.value;
 };
 
+// Сенсорные функции
+const startDrawingTouch = event => {
+    isMouseDown = true;
+    [x, y] = [event.touches[0].clientX, event.touches[0].clientY];
+};
+const drawLineTouch = event => {
+    if (isMouseDown) {
+        const newX = event.touches[0].clientX;
+        const newY = event.touches[0].clientY;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.lineTo(newX, newY);
+        context.stroke();
+        [x, y] = [newX, newY];
+    }
+};
+const stopDrawingTouch = () => { isMouseDown = false; };
+
+paintCanvas.addEventListener('mousedown', startDrawing);
+paintCanvas.addEventListener('mousemove', drawLine);
+paintCanvas.addEventListener('mouseup', stopDrawing);
+paintCanvas.addEventListener('mouseout', stopDrawing);
+
+// Добавление обработчиков для сенсорных событий
+paintCanvas.addEventListener('touchstart', startDrawingTouch);
+paintCanvas.addEventListener('touchmove', drawLineTouch);
+paintCanvas.addEventListener('touchend', stopDrawingTouch);
+paintCanvas.addEventListener('touchcancel', stopDrawingTouch);  // Для обработки прерванных касаний
+
+// Предотвращение стандартной обработки сенсорных событий
+paintCanvas.addEventListener('touchstart', e => e.preventDefault());
+paintCanvas.addEventListener('touchmove', e => e.preventDefault());
+
 window.addEventListener('load', resizeCanvas);
 window.addEventListener('resize', resizeCanvas);
-
