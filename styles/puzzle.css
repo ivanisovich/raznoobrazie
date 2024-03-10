@@ -2,7 +2,7 @@
     display: flex;
     margin-top: -4px;
     align-items: stretch;
-    background: black;
+    background: rgb(255, 255, 255);
 }
 
 .puzzle{
@@ -13,9 +13,16 @@
     align-items: stretch;
     cursor: pointer;
 }
+.puzzle-item {
+    transition:  0.2s; 
+    width: 7vw;
+    cursor: pointer; 
+    position: absolute;
+}
 
-#puzzle{
-    width: 67%
+.puzzle-inner{
+    width: 67%;
+    position: relative;
 }
 
 .puzzle-text{

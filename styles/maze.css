@@ -39,11 +39,11 @@
         font-size: 6.6vw;
     }
 
-    #tetris-container {
+    #tetris-container.active {
         height: 110vw;
     }
 
-    #tetris-container .tetoris-content {
+    #tetris-container.active .tetoris-content {
         position: absolute;
         transform: translateX(-50%) translateY(-50%);
         top: 50%;

@@ -25,6 +25,7 @@ const startDrawing = event => {
     isMouseDown = true;
     [x, y] = [event.offsetX, event.offsetY];
 };
+
 const drawLine = event => {
     if (isMouseDown) {
         const newX = event.offsetX;
@@ -36,6 +37,27 @@ const drawLine = event => {
         [x, y] = [newX, newY];
     }
 };
+
+const startDrawingTouch = event => {
+    const rect = paintCanvas.getBoundingClientRect();
+    isMouseDown = true;
+    [x, y] = [event.touches[0].clientX - rect.left, event.touches[0].clientY - rect.top];
+};
+
+const drawLineTouch = event => {
+    if (isMouseDown) {
+        const rect = paintCanvas.getBoundingClientRect();
+        const newX = event.touches[0].clientX - rect.left;
+        const newY = event.touches[0].clientY - rect.top;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.lineTo(newX, newY);
+        context.stroke();
+        [x, y] = [newX, newY];
+    }
+};
+
+
 const resizeCanvas = () => {
     const containerWidth = paintCanvas.parentElement.offsetWidth;
     const aspectRatio = 1 / 1;
@@ -47,23 +69,6 @@ const resizeCanvas = () => {
     context.lineCap = 'round';
     context.strokeStyle = colorPicker.value;
     context.lineWidth = lineWidthRange.value;
-};
-
-// Сенсорные функции
-const startDrawingTouch = event => {
-    isMouseDown = true;
-    [x, y] = [event.touches[0].clientX, event.touches[0].clientY];
-};
-const drawLineTouch = event => {
-    if (isMouseDown) {
-        const newX = event.touches[0].clientX;
-        const newY = event.touches[0].clientY;
-        context.beginPath();
-        context.moveTo(x, y);
-        context.lineTo(newX, newY);
-        context.stroke();
-        [x, y] = [newX, newY];
-    }
 };
 const stopDrawingTouch = () => { isMouseDown = false; };
 

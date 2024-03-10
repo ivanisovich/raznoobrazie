@@ -1,16 +1,21 @@
 body {
     margin: 0;
 }
+
+.tetris-wrapper{
+    position: relative;
+}
 #tetris-container {
     width: 70%;
     margin-top: -7px;
     position: relative;
+    height: 0%;
 }
 #tetris-container label {
     position: absolute;
     display: none;
 }
-#tetris-container .tetoris-content {
+#tetris-container.active .tetoris-content {
     position: absolute;
     transform: translateX(-50%) translateY(-50%);
     top: 50%;
@@ -24,249 +29,279 @@ body {
     padding: 15px;
     animation: vibration 0.2s ease-in-out 1 3.2s, vibration 0.2s ease-in-out 1 6.2s, vibration 0.2s ease-in-out 1 8.6s, vibration 0.2s ease-in-out 1 10.4s, vibration 0.2s ease-in-out 1 13.4s, vibration 0.2s ease-in-out 1 16.4s, vibration 0.2s ease-in-out 1 19s, vibration 0.2s ease-in-out 1 22s, vibration 0.2s ease-in-out 1 24.6s, vibration 0.2s ease-in-out 1 28.8s;
 }
+
+.tetris-thumb{
+    background: var(--color-yellow);
+    width: 12vw;
+    height: 12vw;
+
+    animation: shine 2s ease-in-out infinite;
+
+    position: absolute;
+    top: 0px;
+    left: 35%;
+    transform: translate(-50%, 0%);
+}
+
+@keyframes shine{
+    0%{
+        opacity: 0.4;
+    }
+
+    50%{
+   
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.4;
+    }
+}
 #tetris-container .tetoris-content div[class*="tetoris-content"] {
  
    
 }
-#tetris-container .tetoris-content .tetoris-content__block4 {
+
+
+#tetris-container.active .tetoris-content .tetoris-content__block4 {
     animation: flashing_orange 1s linear 1 3.4s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block5 {
+#tetris-container.active .tetoris-content .tetoris-content__block5 {
     animation: flashing_yellow 1s linear 1 0s, flashing_orange 1s linear 1 3.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 13.6s, flashing_purple 1s linear 1 16.6s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block6 {
+#tetris-container.active .tetoris-content .tetoris-content__block6 {
     animation: flashing_yellow 1s linear 1 0s, flashing_orange 1s linear 1 3.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 13.6s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s, flashing_waterblue 0.8s linear 1 27s;
 }
-#tetris-container .tetoris-content .tetoris-content__block7 {
+#tetris-container.active .tetoris-content .tetoris-content__block7 {
     animation: flashing_waterblue 1s linear 1 24.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block14 {
+#tetris-container.active .tetoris-content .tetoris-content__block14 {
     animation: flashing_orange 1s linear 1 3.4s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_purple 1s linear 1 16.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 1s linear 1 19.2s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block15 {
+#tetris-container.active .tetoris-content .tetoris-content__block15 {
     animation: flashing_yellow 1s linear 1 0s, flashing_yellow 1s linear 1 1s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 1s linear 1 13.6s, flashing_yellow 1s linear 1 14.6s, flashing_purple 1s linear 1 16.6s, flashing_purple 1s linear 1 17.6s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block16 {
+#tetris-container.active .tetoris-content .tetoris-content__block16 {
     animation: flashing_yellow 1s linear 1 0s, flashing_yellow 1s linear 1 1s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 1s linear 1 13.6s, flashing_yellow 1s linear 1 14.6s, flashing_purple 1s linear 1 16.6s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 22.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block17 {
+#tetris-container.active .tetoris-content .tetoris-content__block17 {
     animation: flashing_waterblue 1s linear 1 25.8s, flashing_waterblue 0.2s linear 1 28s;
 }
-#tetris-container .tetoris-content .tetoris-content__block18 {
+#tetris-container.active .tetoris-content .tetoris-content__block18 {
     animation: flashing_waterblue 0.2s linear 1 28.2s;
 }
-#tetris-container .tetoris-content .tetoris-content__block19 {
+#tetris-container.active .tetoris-content .tetoris-content__block19 {
     animation: flashing_waterblue 0.2s linear 1 28.4s;
 }
-#tetris-container .tetoris-content .tetoris-content__block20 {
+#tetris-container.active .tetoris-content .tetoris-content__block20 {
     animation: flashing_waterblue 0.2s linear 1 28.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block21 {
+#tetris-container.active .tetoris-content .tetoris-content__block21 {
     animation: flashing_yellow 0.2s linear 1 2.8s, flashing_orange 0.2s linear 1 21.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block22 {
+#tetris-container.active .tetoris-content .tetoris-content__block22 {
     animation: flashing_yellow 0.2s linear 1 2.6s, flashing_yellow 0.2s linear 1 2.8s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 21.6s, flashing_orange 0.2s linear 1 21.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block23 {
+#tetris-container.active .tetoris-content .tetoris-content__block23 {
     animation: flashing_yellow 0.2s linear 1 2.4s, flashing_yellow 0.2s linear 1 2.6s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 21.4s, flashing_orange 0.2s linear 1 21.6s, flashing_orange 0.2s linear 1 21.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block24 {
+#tetris-container.active .tetoris-content .tetoris-content__block24 {
     animation: flashing_yellow 0.2s linear 1 2.2s, flashing_yellow 0.2s linear 1 2.4s, flashing_orange 1s linear 1 4.4s, flashing_orange 0.2s linear 1 5.4s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 5.8s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_purple 1s linear 1 17.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 1s linear 1 20.2s, flashing_orange 0.2s linear 1 21.2s, flashing_orange 0.2s linear 1 21.4s, flashing_orange 0.2s linear 1 21.6s, flashing_blue 0.2s linear 1 24.2s, flashing_waterblue 0.2s linear 1 26.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block25 {
+#tetris-container.active .tetoris-content .tetoris-content__block25 {
     animation: flashing_yellow 1s linear 1 1s, flashing_yellow 0.2s linear 1 2s, flashing_yellow 0.2s linear 1 2.2s, flashing_orange 0.2s linear 1 5.4s, flashing_orange 0.2s linear 1 5.6s, flashing_purple 1s linear 1 7.4s, flashing_purple 0.2s linear 1 8.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 1s linear 1 14.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_purple 1s linear 1 17.6s, flashing_purple 0.2s linear 1 18.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 0.2s linear 1 21.2s, flashing_orange 0.2s linear 1 21.4s, flashing_blue 0.2s linear 1 24.2s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block26 {
+#tetris-container.active .tetoris-content .tetoris-content__block26 {
     animation: flashing_yellow 1s linear 1 1s, flashing_yellow 0.2s linear 1 2s, flashing_orange 0.2s linear 1 5.4s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 1s linear 1 14.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_yellow 0.2s linear 1 15.8s, flashing_purple 1s linear 1 17.6s, flashing_orange 0.2s linear 1 21.2s, flashing_blue 1s linear 1 23.2s, flashing_blue 0.2s linear 1 24.2s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block27 {
+#tetris-container.active .tetoris-content .tetoris-content__block27 {
     animation: flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 15.8s, flashing_yellow 0.2s linear 1 16s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s, flashing_waterblue 0.2s linear 1 28s;
 }
-#tetris-container .tetoris-content .tetoris-content__block28 {
+#tetris-container.active .tetoris-content .tetoris-content__block28 {
     animation: flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.2s;
 }
-#tetris-container .tetoris-content .tetoris-content__block29 {
+#tetris-container.active .tetoris-content .tetoris-content__block29 {
     animation: flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.4s;
 }
-#tetris-container .tetoris-content .tetoris-content__block30 {
+#tetris-container.active .tetoris-content .tetoris-content__block30 {
     animation: flashing_waterblue 0.2s linear 1 28.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block31 {
+#tetris-container.active .tetoris-content .tetoris-content__block31 {
     animation: flashing_yellow 0.2s linear 1 2.8s, flashing_yellow 0.2s linear 1 3s, flashing_orange 0.2s linear 1 21.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block32 {
+#tetris-container.active .tetoris-content .tetoris-content__block32 {
     animation: flashing_yellow 0.2s linear 1 2.6s, flashing_yellow 0.2s linear 1 2.8s, flashing_yellow 0.2s linear 1 3s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 6s, flashing_orange 0.2s linear 1 21.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block33 {
+#tetris-container.active .tetoris-content .tetoris-content__block33 {
     animation: flashing_yellow 0.2s linear 1 2.4s, flashing_yellow 0.2s linear 1 2.6s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 6s, flashing_orange 0.2s linear 1 21.4s;
 }
-#tetris-container .tetoris-content .tetoris-content__block34 {
+#tetris-container.active .tetoris-content .tetoris-content__block34 {
     animation: flashing_yellow 0.2s linear 1 2.2s, flashing_yellow 0.2s linear 1 2.4s, flashing_orange 0.2s linear 1 5.4s, flashing_purple 0.2s linear 1 8.4s, flashing_purple 0.2s linear 1 18.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 0.2s linear 1 21.2s;
 }
-#tetris-container .tetoris-content .tetoris-content__block35 {
+#tetris-container.active .tetoris-content .tetoris-content__block35 {
     animation: flashing_yellow 0.2s linear 1 2s, flashing_yellow 0.2s linear 1 2.2s, flashing_purple 0.2s linear 1 8.4s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_purple 0.2s linear 1 18.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block36 {
+#tetris-container.active .tetoris-content .tetoris-content__block36 {
     animation: flashing_yellow 0.2s linear 1 2s, flashing_purple 0.2s linear 1 8.4s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 15.6s, flashing_yellow 0.2s linear 1 15.8s, flashing_purple 0.2s linear 1 18.6s, flashing_blue 0.2s linear 1 24.2s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block37 {
+#tetris-container.active .tetoris-content .tetoris-content__block37 {
     animation: flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 15.8s, flashing_yellow 0.2s linear 1 16s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 28s;
 }
-#tetris-container .tetoris-content .tetoris-content__block38 {
+#tetris-container.active .tetoris-content .tetoris-content__block38 {
     animation: flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.2s;
 }
-#tetris-container .tetoris-content .tetoris-content__block39 {
+#tetris-container.active .tetoris-content .tetoris-content__block39 {
     animation: flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.4s;
 }
-#tetris-container .tetoris-content .tetoris-content__block40 {
+#tetris-container.active .tetoris-content .tetoris-content__block40 {
     animation: flashing_waterblue 0.2s linear 1 28.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block41 {
+#tetris-container.active .tetoris-content .tetoris-content__block41 {
     animation: flashing_yellow 0.2s linear 1 3s;
 }
-#tetris-container .tetoris-content .tetoris-content__block42 {
+#tetris-container.active .tetoris-content .tetoris-content__block42 {
     animation: flashing_yellow 0.2s linear 1 3s;
 }
-#tetris-container .tetoris-content .tetoris-content__block43 {
+#tetris-container.active .tetoris-content .tetoris-content__block43 {
     animation: flashing_orange 0.2s linear 1 6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block46 {
+#tetris-container.active .tetoris-content .tetoris-content__block46 {
     animation: flashing_waterblue 0.2s linear 1 27.8s;
 }
-#tetris-container .tetoris-content .tetoris-content__block47 {
+#tetris-container.active .tetoris-content .tetoris-content__block47 {
     animation: flashing_waterblue 0.2s linear 1 28s;
 }
-#tetris-container .tetoris-content .tetoris-content__block48 {
+#tetris-container.active .tetoris-content .tetoris-content__block48 {
     animation: flashing_waterblue 0.2s linear 1 28.2s;
 }
-#tetris-container .tetoris-content .tetoris-content__block49 {
+#tetris-container.active .tetoris-content .tetoris-content__block49 {
     animation: flashing_waterblue 0.2s linear 1 28.4s;
 }
-#tetris-container .tetoris-content .tetoris-content__block50 {
+#tetris-container.active .tetoris-content .tetoris-content__block50 {
     animation: flashing_waterblue 0.2s linear 1 28.6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block53 {
+#tetris-container.active .tetoris-content .tetoris-content__block53 {
     animation: flashing_orange 0.2s linear 1 6s;
 }
-#tetris-container .tetoris-content .tetoris-content__block151 {
+#tetris-container.active .tetoris-content .tetoris-content__block151 {
     animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block141 {
+#tetris-container.active .tetoris-content .tetoris-content__block141 {
     animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block142 {
+#tetris-container.active .tetoris-content .tetoris-content__block142 {
     animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block143 {
+#tetris-container.active .tetoris-content .tetoris-content__block143 {
     animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block144 {
+#tetris-container.active .tetoris-content .tetoris-content__block144 {
     animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block145 {
+#tetris-container.active .tetoris-content .tetoris-content__block145 {
     animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block146 {
+#tetris-container.active .tetoris-content .tetoris-content__block146 {
     animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block147 {
+#tetris-container.active .tetoris-content .tetoris-content__block147 {
     animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block148 {
+#tetris-container.active .tetoris-content .tetoris-content__block148 {
     animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block149 {
+#tetris-container.active .tetoris-content .tetoris-content__block149 {
     animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block150 {
+#tetris-container.active .tetoris-content .tetoris-content__block150 {
     animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
 }
 
-#tetris-container .tetoris-content .tetoris-content__block152 {
+#tetris-container.active .tetoris-content .tetoris-content__block152 {
     animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block153 {
+#tetris-container.active .tetoris-content .tetoris-content__block153 {
     animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block154 {
+#tetris-container.active .tetoris-content .tetoris-content__block154 {
     animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block155 {
+#tetris-container.active .tetoris-content .tetoris-content__block155 {
     animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block156 {
+#tetris-container.active .tetoris-content .tetoris-content__block156 {
     animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block157 {
+#tetris-container.active .tetoris-content .tetoris-content__block157 {
     animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block158 {
+#tetris-container.active .tetoris-content .tetoris-content__block158 {
     animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block159 {
+#tetris-container.active .tetoris-content .tetoris-content__block159 {
     animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block160 {
+#tetris-container.active .tetoris-content .tetoris-content__block160 {
     animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block161 {
+#tetris-container.active .tetoris-content .tetoris-content__block161 {
     animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block162 {
+#tetris-container.active .tetoris-content .tetoris-content__block162 {
     animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block163 {
+#tetris-container.active .tetoris-content .tetoris-content__block163 {
     animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block164 {
+#tetris-container.active .tetoris-content .tetoris-content__block164 {
     animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block165 {
+#tetris-container.active .tetoris-content .tetoris-content__block165 {
     animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block166 {
+#tetris-container.active .tetoris-content .tetoris-content__block166 {
     animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block167 {
+#tetris-container.active .tetoris-content .tetoris-content__block167 {
     animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block168 {
+#tetris-container.active .tetoris-content .tetoris-content__block168 {
     animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block169 {
+#tetris-container.active .tetoris-content .tetoris-content__block169 {
     animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block170 {
+#tetris-container.active .tetoris-content .tetoris-content__block170 {
     animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block171 {
+#tetris-container.active .tetoris-content .tetoris-content__block171 {
     animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block172 {
+#tetris-container.active .tetoris-content .tetoris-content__block172 {
     animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block173 {
+#tetris-container.active .tetoris-content .tetoris-content__block173 {
     animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block174 {
+#tetris-container.active .tetoris-content .tetoris-content__block174 {
     animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block175 {
+#tetris-container.active .tetoris-content .tetoris-content__block175 {
     animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block176 {
+#tetris-container.active .tetoris-content .tetoris-content__block176 {
     animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block177 {
+#tetris-container.active .tetoris-content .tetoris-content__block177 {
     animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block178 {
+#tetris-container.active .tetoris-content .tetoris-content__block178 {
     animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block179 {
+#tetris-container.active .tetoris-content .tetoris-content__block179 {
     animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
 }
-#tetris-container .tetoris-content .tetoris-content__block180 {
+#tetris-container.active .tetoris-content .tetoris-content__block180 {
     animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
 }
 @keyframes flash {
