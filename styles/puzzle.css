@@ -21,9 +21,19 @@
     position: relative;
     border: 1px solid white;
     box-sizing: border-box
-
 }
 
+.puzzle-item:hover {
+    border: 1px solid black;
+    transition: .3s ease-in-out;
+}
+
+
+.selected {
+    border: 1px solid black;
+
+    transition: 0.3s ease-in-out;
+}
 .puzzle-inner{
     display: flex;
     flex-wrap: wrap;

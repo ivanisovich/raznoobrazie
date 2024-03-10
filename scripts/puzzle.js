@@ -53,27 +53,31 @@ function updateIndexes() {
 }
 
 function addClickListeners() {
-  document.querySelectorAll('.puzzle-item').forEach((piece, index) => {
+  document.querySelectorAll('.puzzle-item').forEach((piece) => {
       piece.addEventListener('click', () => {
           if (selected.length < 2) {
+              piece.classList.add('selected'); // Добавляем класс для управления прозрачностью
               selected.push(piece.getAttribute('data-index'));
           }
 
           if (selected.length === 2) {
-              const [index1, index2] = selected;
               const pieces = document.querySelectorAll('.puzzle-item');
+              const [index1, index2] = selected.map(index => parseInt(index));
               const element1 = pieces[index1];
               const element2 = pieces[index2];
 
-              if (areNeighbors(parseInt(index1), parseInt(index2))) {
+              if (areNeighbors(index1, index2)) {
                   swapElements(element1, element2);
               }
 
+              // Убираем класс после обмена
+              pieces.forEach(piece => piece.classList.remove('selected'));
               selected = [];
           }
       });
   });
 }
+
 
 
 function checkWin() {
