@@ -32,8 +32,8 @@ body {
 
 .tetris-thumb{
     background: var(--color-yellow);
-    width: 12vw;
-    height: 12vw;
+    width: 6vw;
+    height: 6vw;
 
     animation: shine 2s ease-in-out infinite;
 

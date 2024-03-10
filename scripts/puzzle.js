@@ -1,67 +1,97 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let draggedItem = null;
-  let offsetX = 0;
-  let offsetY = 0;
+const boardSize = 4;
+let selected = [];
 
-  // Обработка событий для мыши
-  const addMouseListeners = (item) => {
-    item.addEventListener('dragstart', (e) => {
-      draggedItem = item;
-      offsetX = e.clientX - draggedItem.getBoundingClientRect().left;
-      offsetY = e.clientY - draggedItem.getBoundingClientRect().top;
-      e.dataTransfer.setData('text', ''); // Для Firefox
-    });
+function swapElements(element1, element2) {
+  const rect1 = element1.getBoundingClientRect();
+  const rect2 = element2.getBoundingClientRect();
 
-    item.addEventListener('dragend', () => {
-      draggedItem = null;
-    });
-  };
+  element1.style.transform = `translate(${rect2.left - rect1.left}px, ${rect2.top - rect1.top}px)`;
+  element1.style.transition = 'transform 0.3s ease-in-out';
 
-  // Обработка событий для сенсорных устройств
-  const addTouchListeners = (item) => {
-    item.addEventListener('touchstart', (e) => {
-      const touch = e.touches[0];
-      draggedItem = item;
-      const rect = draggedItem.getBoundingClientRect();
-      offsetX = touch.clientX - rect.left;
-      offsetY = touch.clientY - rect.top;
-    }, {passive: true});
+  element2.style.transform = `translate(${rect1.left - rect2.left}px, ${rect1.top - rect2.top}px)`;
+  element2.style.transition = 'transform 0.3s ease-in-out';
 
-    item.addEventListener('touchmove', (e) => {
-      e.preventDefault(); // Предотвращение скроллинга
-      if (!draggedItem) return;
+  window.requestAnimationFrame(() => {
+      setTimeout(() => {
+          element1.style.transition = 'none';
+          element2.style.transition = 'none';
 
-      const touch = e.touches[0];
-      const rect = e.target.closest('.puzzle-inner').getBoundingClientRect();
-      draggedItem.style.left = `${touch.clientX - rect.left - offsetX}px`;
-      draggedItem.style.top = `${touch.clientY - rect.top - offsetY}px`;
-    }, {passive: false});
+          element1.style.transform = 'none';
+          element2.style.transform = 'none';
 
-    item.addEventListener('touchend', () => {
-      draggedItem = null;
-    });
-  };
+          const parent1 = element1.parentNode;
+          const next1 = element1.nextSibling === element2 ? element1 : element1.nextSibling;
+          element2.parentNode.insertBefore(element1, element2);
+          parent1.insertBefore(element2, next1);
 
-  document.querySelectorAll('.puzzle-item').forEach(item => {
-    addMouseListeners(item);
-    addTouchListeners(item);
+          updateIndexes(); // Обновление индексов после завершения анимации и перестановки
+      }, 300);
+  });
+}
+
+
+function areNeighbors(index1, index2) {
+  const pieces = document.querySelectorAll('.puzzle-item');
+  const id1 = parseInt(pieces[index1].getAttribute('data-index'));
+  const id2 = parseInt(pieces[index2].getAttribute('data-index'));
+
+  const [x1, y1] = [id1 % boardSize, Math.floor(id1 / boardSize)];
+  const [x2, y2] = [id2 % boardSize, Math.floor(id2 / boardSize)];
+
+  const isSameRowAndAdjacent = y1 === y2 && Math.abs(x1 - x2) === 1;
+  const isSameColumnAndAdjacent = x1 === x2 && Math.abs(y1 - y2) === 1;
+
+  return isSameRowAndAdjacent || isSameColumnAndAdjacent;
+}
+
+
+function updateIndexes() {
+  const pieces = document.querySelectorAll('.puzzle-item');
+  pieces.forEach((piece, index) => {
+      piece.setAttribute('data-index', index);
+  });
+}
+
+function addClickListeners() {
+  document.querySelectorAll('.puzzle-item').forEach((piece, index) => {
+      piece.addEventListener('click', () => {
+          if (selected.length < 2) {
+              selected.push(piece.getAttribute('data-index'));
+          }
+
+          if (selected.length === 2) {
+              const [index1, index2] = selected;
+              const pieces = document.querySelectorAll('.puzzle-item');
+              const element1 = pieces[index1];
+              const element2 = pieces[index2];
+
+              if (areNeighbors(parseInt(index1), parseInt(index2))) {
+                  swapElements(element1, element2);
+              }
+
+              selected = [];
+          }
+      });
+  });
+}
+
+
+function checkWin() {
+  let isWin = false;
+  const pieces = document.querySelectorAll('.puzzle-item');
+  pieces.forEach((piece, index) => {
+      if (parseInt(piece.getAttribute('data-index')) !== index) {
+          isWin = true;
+      }
   });
 
-  const puzzleInner = document.querySelector('.puzzle-inner');
+  if (isWin) {
+      alert("Поздравляем! Вы выиграли!");
+  }
+}
 
-  puzzleInner.addEventListener('dragover', (e) => {
-    e.preventDefault();
-  });
+addClickListeners();
 
-  puzzleInner.addEventListener('drop', (e) => {
-    e.preventDefault();
-    if (draggedItem) {
-      const rect = puzzleInner.getBoundingClientRect();
-      draggedItem.style.left = `${e.clientX - rect.left - offsetX}px`;
-      draggedItem.style.top = `${e.clientY - rect.top - offsetY}px`;
-    }
-  });
-});
 
 
 const objectElement = document.querySelector('.puzzle-text');
