@@ -4,33 +4,31 @@ maze.addEventListener("load", function () {
   var svgDoc = maze.contentDocument;
   var svgElement = svgDoc.documentElement;
   var svgRect = svgElement.getBoundingClientRect();
-  var mouth = svgDoc.querySelector("#maze-mouth");
+ 
   let isDragging = false;
   let lastValidX = 1600, lastValidY = 2560;
   let deltaX = 0, deltaY = 0;
 
-  mouth.addEventListener("mousedown", function(event) {
-    isDragging = true;
-    let scaleRatioX = svgRect.width / svgElement.viewBox.baseVal.width;
-    let scaleRatioY = svgRect.height / svgElement.viewBox.baseVal.height;
-    let transform = mouth.getAttribute("transform");
-    let translate = parseTransform(transform);
-    lastValidX = translate.x;
-    lastValidY = translate.y;
-    deltaX = (event.clientX - svgRect.left) / scaleRatioX - lastValidX;
-    deltaY = (event.clientY - svgRect.top) / scaleRatioY - lastValidY;
+  svgDoc.addEventListener("mousedown", (e) => {
+    let figure = e.target.closest(".figure");
+    if (figure) {
+      svgDoc.querySelectorAll(".figure").forEach((item) => {
+        item.classList.remove("active");
+      });
+      figure.classList.add("active");
+      isDragging = true;
+      let scaleRatioX = svgRect.width / svgElement.viewBox.baseVal.width;
+      let scaleRatioY = svgRect.height / svgElement.viewBox.baseVal.height;
+      let transform = figure.getAttribute("transform");
+      let translate = parseTransform(transform);
+      lastValidX = translate.x;
+      lastValidY = translate.y;
+      deltaX = (e.clientX - svgRect.left) / scaleRatioX - lastValidX;
+      deltaY = (e.clientY - svgRect.top) / scaleRatioY - lastValidY;
+    }
   });
-  
-  // Функция для разбора строки трансформации и извлечения координат x и y
-  function parseTransform(transform) {
-    let match = /translate\(([^,]+),\s*([^)]+)\)/.exec(transform);
-    return {
-      x: match ? parseFloat(match[1]) : 0,
-      y: match ? parseFloat(match[2]) : 0,
-    };
-  }
 
-  svgDoc.addEventListener("mousemove", function(event) {
+  svgDoc.addEventListener("mousemove", function (event) {
     if (isDragging) {
       let scaleRatioX = svgRect.width / svgElement.viewBox.baseVal.width;
       let scaleRatioY = svgRect.height / svgElement.viewBox.baseVal.height;
@@ -42,47 +40,17 @@ maze.addEventListener("load", function () {
     }
   });
 
-  svgDoc.addEventListener("mouseup", function() {
+  svgDoc.addEventListener("mouseup", function () {
     isDragging = false;
   });
 
-  function getTouchPosition(event) {
-    var touch = event.touches[0];
-    let scaleRatioX = svgRect.width / svgElement.viewBox.baseVal.width;
-    let scaleRatioY = svgRect.height / svgElement.viewBox.baseVal.height;
+  function parseTransform(transform) {
+    let match = /translate\(([^,]+),\s*([^)]+)\)/.exec(transform);
     return {
-      x: (touch.clientX - svgRect.left) / scaleRatioX,
-      y: (touch.clientY - svgRect.top) / scaleRatioY
+      x: match ? parseFloat(match[1]) : 0,
+      y: match ? parseFloat(match[2]) : 0,
     };
   }
-
-  mouth.addEventListener("touchstart", function(event) {
-    isDragging = true;
-    let pos = getTouchPosition(event);
-    let transform = mouth.getAttribute("transform");
-    let translate = parseTransform(transform);
-    lastValidX = translate.x;
-    lastValidY = translate.y;
-    deltaX = pos.x - lastValidX;
-    deltaY = pos.y - lastValidY;
-    event.preventDefault(); // Предотвращаем стандартное поведение касания
-  }, { passive: false });
-
-  svgDoc.addEventListener("touchmove", function(event) {
-    if (isDragging) {
-      let pos = getTouchPosition(event);
-      let targetX = pos.x - deltaX;
-      let targetY = pos.y - deltaY;
-
-      performMovement(targetX, lastValidY, 'x');
-      performMovement(lastValidX, targetY, 'y');
-      event.preventDefault(); // Предотвращаем стандартное поведение скроллинга
-    }
-  }, { passive: false });
-
-  svgDoc.addEventListener("touchend", function() {
-    isDragging = false;
-  });
 
   function performMovement(newX, newY, axis) {
     let steps = 5;  // Увеличиваем количество шагов для большей плавности
@@ -102,20 +70,21 @@ maze.addEventListener("load", function () {
       }
     }
   
-    mouth.setAttribute("transform", `translate(${lastValidX}, ${lastValidY})`);
+    svgDoc.querySelector(".active").setAttribute("transform", `translate(${lastValidX}, ${lastValidY})`);
   }
 
   function checkCollision(x, y, svgDoc) {
-    let mouthRect = mouth.getBBox();
-    let mouthBBox = { x: x, y: y, width: mouthRect.width, height: mouthRect.height };
+    let activeFigure = svgDoc.querySelector(".active");
+    let figureRect = activeFigure.getBBox();
+    let figureBBox = { x: x, y: y, width: figureRect.width, height: figureRect.height };
     let whitePaths = svgDoc.querySelectorAll('.path');
 
     for (let path of whitePaths) {
       let pathBBox = path.getBBox();
-      if (!(mouthBBox.x + mouthBBox.width < pathBBox.x ||
-            mouthBBox.x > pathBBox.x + pathBBox.width ||
-            mouthBBox.y + mouthBBox.height < pathBBox.y ||
-            mouthBBox.y > pathBBox.y + pathBBox.height)) {
+      if (!(figureBBox.x + figureBBox.width < pathBBox.x ||
+            figureBBox.x > pathBBox.x + pathBBox.width ||
+            figureBBox.y + figureBBox.height < pathBBox.y ||
+            figureBBox.y > pathBBox.y + pathBBox.height)) {
         return true;
       }
     }
