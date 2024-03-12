@@ -22,9 +22,17 @@
     overflow: hidden;
 }
 
-.footer-text:hover .footer-text_group{
-    animation-play-state: paused;
+.footer-text_group span:hover {
+    color: white;
+    transition: 0.2s;
 }
+
+.footer-text_group span:active {
+    color: white;
+    transition: 0.2s;
+}
+
+
 
 .footer-text_group{
     animation: scrollBottom 7s linear infinite;
@@ -38,6 +46,7 @@
     font-weight: 700;
   
     line-height: 9.111vw;
+    cursor: pointer;
 }
 
 @keyframes scrollBottom {

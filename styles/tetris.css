@@ -1,692 +1,138 @@
-body {
-    margin: 0;
+.tetris-container{
+  width: 70%;
+  height: 100%;
+
 }
 
-.tetris-wrapper{
+.tetris-text__wrapper{
+  max-width: 320px;
+  width: 30%;
+  object-fit: scale-down;
+}
+
+.tetris-text {
+    font-size: 3.317vw;
+    display: flex;
     position: relative;
-}
-#tetris-container {
-    width: 70%;
-    margin-top: -7px;
-    position: relative;
-    height: 0%;
-}
-#tetris-container label {
-    position: absolute;
-    display: none;
-}
-#tetris-container.active .tetoris-content {
-    position: absolute;
-    transform: translateX(-50%) translateY(-50%);
-    top: 50%;
-    left: 50%;
-  
-    display: grid;
-    grid-template-rows: repeat(18, 3vw);
-    -ms-grid-rows: repeat(10, 50px);
-    grid-template-columns: repeat(10, 3vw);
-    -ms-grid-columns: repeat(10, 50px);
-    padding: 15px;
-    animation: vibration 0.2s ease-in-out 1 3.2s, vibration 0.2s ease-in-out 1 6.2s, vibration 0.2s ease-in-out 1 8.6s, vibration 0.2s ease-in-out 1 10.4s, vibration 0.2s ease-in-out 1 13.4s, vibration 0.2s ease-in-out 1 16.4s, vibration 0.2s ease-in-out 1 19s, vibration 0.2s ease-in-out 1 22s, vibration 0.2s ease-in-out 1 24.6s, vibration 0.2s ease-in-out 1 28.8s;
+    overflow: hidden;
+    user-select: none;
+  cursor: pointer;
 }
 
-.tetris-thumb{
-    background: var(--color-yellow);
-    width: 6vw;
-    height: 6vw;
+.tetris-text__wrapper .tetris-text:nth-child(even):hover {
+color: var(--color-blue);
 
-    animation: shine 2s ease-in-out infinite;
-
-    position: absolute;
-    top: 0px;
-    left: 35%;
-    transform: translate(-50%, 0%);
 }
 
-@keyframes shine{
-    0%{
-        opacity: 0.4;
-    }
-
-    50%{
-   
-        opacity: 1;
-    }
-
-    100%{
-        opacity: 0.4;
-    }
-}
-#tetris-container .tetoris-content div[class*="tetoris-content"] {
+.tetris-text__wrapper .tetris-text:nth-child(even):focus{
+  color: var(--color-blue);
  
+}
+
+
+.tetris-text__wrapper .tetris-text:nth-child(odd):hover {
+  color: var(--color-yellow);
+
+  }
+  
+  .tetris-text__wrapper .tetris-text:nth-child(odd):focus{
+    color: var(--color-yellow);
+  }
+  .tetris-text__wrapper .tetris-text:nth-child(7):hover,
+  .tetris-text__wrapper .tetris-text:nth-child(3):hover {
+    color: var(--color-orange);
+    }
+    .tetris-text__wrapper .tetris-text:nth-child(7):focus,
+    .tetris-text__wrapper .tetris-text:nth-child(3):focus{
+      color: var(--color-orange);
+    }
+
+
+.tetris-text__group{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
    
 }
 
+.tetris-text span {
 
-#tetris-container.active .tetoris-content .tetoris-content__block4 {
-    animation: flashing_orange 1s linear 1 3.4s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block5 {
-    animation: flashing_yellow 1s linear 1 0s, flashing_orange 1s linear 1 3.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 13.6s, flashing_purple 1s linear 1 16.6s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block6 {
-    animation: flashing_yellow 1s linear 1 0s, flashing_orange 1s linear 1 3.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 13.6s, flashing_orange 1s linear 1 19.2s, flashing_blue 1s linear 1 22.2s, flashing_waterblue 1s linear 1 24.8s, flashing_waterblue 0.8s linear 1 27s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block7 {
-    animation: flashing_waterblue 1s linear 1 24.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block14 {
-    animation: flashing_orange 1s linear 1 3.4s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_purple 1s linear 1 16.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 1s linear 1 19.2s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block15 {
-    animation: flashing_yellow 1s linear 1 0s, flashing_yellow 1s linear 1 1s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 1s linear 1 8.8s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 1s linear 1 13.6s, flashing_yellow 1s linear 1 14.6s, flashing_purple 1s linear 1 16.6s, flashing_purple 1s linear 1 17.6s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block16 {
-    animation: flashing_yellow 1s linear 1 0s, flashing_yellow 1s linear 1 1s, flashing_orange 1s linear 1 4.4s, flashing_purple 1s linear 1 6.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 1s linear 1 10.6s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 1s linear 1 13.6s, flashing_yellow 1s linear 1 14.6s, flashing_purple 1s linear 1 16.6s, flashing_orange 1s linear 1 20.2s, flashing_blue 1s linear 1 22.2s, flashing_blue 1s linear 1 23.2s, flashing_waterblue 1s linear 1 25.8s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block17 {
-    animation: flashing_waterblue 1s linear 1 25.8s, flashing_waterblue 0.2s linear 1 28s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block18 {
-    animation: flashing_waterblue 0.2s linear 1 28.2s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block19 {
-    animation: flashing_waterblue 0.2s linear 1 28.4s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block20 {
-    animation: flashing_waterblue 0.2s linear 1 28.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block21 {
-    animation: flashing_yellow 0.2s linear 1 2.8s, flashing_orange 0.2s linear 1 21.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block22 {
-    animation: flashing_yellow 0.2s linear 1 2.6s, flashing_yellow 0.2s linear 1 2.8s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 21.6s, flashing_orange 0.2s linear 1 21.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block23 {
-    animation: flashing_yellow 0.2s linear 1 2.4s, flashing_yellow 0.2s linear 1 2.6s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 21.4s, flashing_orange 0.2s linear 1 21.6s, flashing_orange 0.2s linear 1 21.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block24 {
-    animation: flashing_yellow 0.2s linear 1 2.2s, flashing_yellow 0.2s linear 1 2.4s, flashing_orange 1s linear 1 4.4s, flashing_orange 0.2s linear 1 5.4s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 5.8s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_purple 1s linear 1 17.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 1s linear 1 20.2s, flashing_orange 0.2s linear 1 21.2s, flashing_orange 0.2s linear 1 21.4s, flashing_orange 0.2s linear 1 21.6s, flashing_blue 0.2s linear 1 24.2s, flashing_waterblue 0.2s linear 1 26.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block25 {
-    animation: flashing_yellow 1s linear 1 1s, flashing_yellow 0.2s linear 1 2s, flashing_yellow 0.2s linear 1 2.2s, flashing_orange 0.2s linear 1 5.4s, flashing_orange 0.2s linear 1 5.6s, flashing_purple 1s linear 1 7.4s, flashing_purple 0.2s linear 1 8.4s, flashing_yellowgreen 0.2s linear 1 9.8s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 1s linear 1 14.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_purple 1s linear 1 17.6s, flashing_purple 0.2s linear 1 18.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 0.2s linear 1 21.2s, flashing_orange 0.2s linear 1 21.4s, flashing_blue 0.2s linear 1 24.2s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block26 {
-    animation: flashing_yellow 1s linear 1 1s, flashing_yellow 0.2s linear 1 2s, flashing_orange 0.2s linear 1 5.4s, flashing_purple 1s linear 1 7.4s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 1s linear 1 11.6s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 1s linear 1 14.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_yellow 0.2s linear 1 15.8s, flashing_purple 1s linear 1 17.6s, flashing_orange 0.2s linear 1 21.2s, flashing_blue 1s linear 1 23.2s, flashing_blue 0.2s linear 1 24.2s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block27 {
-    animation: flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 15.8s, flashing_yellow 0.2s linear 1 16s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 26.8s, flashing_waterblue 0.2s linear 1 28s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block28 {
-    animation: flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.2s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block29 {
-    animation: flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.4s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block30 {
-    animation: flashing_waterblue 0.2s linear 1 28.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block31 {
-    animation: flashing_yellow 0.2s linear 1 2.8s, flashing_yellow 0.2s linear 1 3s, flashing_orange 0.2s linear 1 21.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block32 {
-    animation: flashing_yellow 0.2s linear 1 2.6s, flashing_yellow 0.2s linear 1 2.8s, flashing_yellow 0.2s linear 1 3s, flashing_orange 0.2s linear 1 5.8s, flashing_orange 0.2s linear 1 6s, flashing_orange 0.2s linear 1 21.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block33 {
-    animation: flashing_yellow 0.2s linear 1 2.4s, flashing_yellow 0.2s linear 1 2.6s, flashing_orange 0.2s linear 1 5.6s, flashing_orange 0.2s linear 1 6s, flashing_orange 0.2s linear 1 21.4s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block34 {
-    animation: flashing_yellow 0.2s linear 1 2.2s, flashing_yellow 0.2s linear 1 2.4s, flashing_orange 0.2s linear 1 5.4s, flashing_purple 0.2s linear 1 8.4s, flashing_purple 0.2s linear 1 18.6s, flashing_purple 0.2s linear 1 18.8s, flashing_orange 0.2s linear 1 21.2s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block35 {
-    animation: flashing_yellow 0.2s linear 1 2s, flashing_yellow 0.2s linear 1 2.2s, flashing_purple 0.2s linear 1 8.4s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 15.6s, flashing_purple 0.2s linear 1 18.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block36 {
-    animation: flashing_yellow 0.2s linear 1 2s, flashing_purple 0.2s linear 1 8.4s, flashing_yellowgreen 0.2s linear 1 10s, flashing_yellow 0.2s linear 1 12.6s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 15.6s, flashing_yellow 0.2s linear 1 15.8s, flashing_purple 0.2s linear 1 18.6s, flashing_blue 0.2s linear 1 24.2s, flashing_waterblue 0.8s linear 1 27s, flashing_waterblue 0.2s linear 1 27.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block37 {
-    animation: flashing_yellowgreen 0.2s linear 1 10.2s, flashing_yellow 0.2s linear 1 12.8s, flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 15.8s, flashing_yellow 0.2s linear 1 16s, flashing_blue 0.2s linear 1 24.4s, flashing_waterblue 0.2s linear 1 28s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block38 {
-    animation: flashing_yellow 0.2s linear 1 13s, flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.2s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block39 {
-    animation: flashing_yellow 0.2s linear 1 13.2s, flashing_yellow 0.2s linear 1 16.2s, flashing_waterblue 0.2s linear 1 28.4s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block40 {
-    animation: flashing_waterblue 0.2s linear 1 28.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block41 {
-    animation: flashing_yellow 0.2s linear 1 3s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block42 {
-    animation: flashing_yellow 0.2s linear 1 3s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block43 {
-    animation: flashing_orange 0.2s linear 1 6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block46 {
-    animation: flashing_waterblue 0.2s linear 1 27.8s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block47 {
-    animation: flashing_waterblue 0.2s linear 1 28s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block48 {
-    animation: flashing_waterblue 0.2s linear 1 28.2s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block49 {
-    animation: flashing_waterblue 0.2s linear 1 28.4s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block50 {
-    animation: flashing_waterblue 0.2s linear 1 28.6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block53 {
-    animation: flashing_orange 0.2s linear 1 6s;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block151 {
-    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block141 {
-    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block142 {
-    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block143 {
-    animation: end_orange 1s linear 22s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block144 {
-    animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block145 {
-    animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block146 {
-    animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block147 {
-    animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block148 {
-    animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block149 {
-    animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block150 {
-    animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
+    will-change: transform;
+    padding-right: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: scrollLeft 11s linear infinite;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    list-style: none;
+   
 }
 
-#tetris-container.active .tetoris-content .tetoris-content__block152 {
-    animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
+.tetris-text__wrapper :nth-child(even) span{
+    animation: scrollRight 11s linear infinite;
 }
-#tetris-container.active .tetoris-content .tetoris-content__block153 {
-    animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
+
+@keyframes scrollLeft {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% ));
+    }
 }
-#tetris-container.active .tetoris-content .tetoris-content__block154 {
-    animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
+
+@keyframes scrollRight {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(calc(0));
+    }
 }
-#tetris-container.active .tetoris-content .tetoris-content__block155 {
-    animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(2) .tetris-text__group :nth-child(1){
+  margin-left: -42%;  
 }
-#tetris-container.active .tetoris-content .tetoris-content__block156 {
-    animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(4) .tetris-text__group :nth-child(1){
+  margin-left: -72%;  
 }
-#tetris-container.active .tetoris-content .tetoris-content__block157 {
-    animation: end_blue 1s linear 24.6s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(6) .tetris-text__group :nth-child(1){
+  margin-left: -74%;  
 }
-#tetris-container.active .tetoris-content .tetoris-content__block158 {
-    animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(10) .tetris-text__group :nth-child(1){
+  margin-left: -72%;  
 }
-#tetris-container.active .tetoris-content .tetoris-content__block159 {
-    animation: end_yellow 1s linear 16.4s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(14) .tetris-text__group :nth-child(1){
+  margin-left: -77%;  
 }
-#tetris-container.active .tetoris-content .tetoris-content__block160 {
-    animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
+
+.tetris-text__wrapper :nth-child(3) .tetris-text__group :nth-child(1){
+     margin-left: -10%;   
 }
-#tetris-container.active .tetoris-content .tetoris-content__block161 {
-    animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block162 {
-    animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block163 {
-    animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block164 {
-    animation: end_purple 1s linear 19s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block165 {
-    animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block166 {
-    animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block167 {
-    animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block168 {
-    animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block169 {
-    animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block170 {
-    animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block171 {
-    animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block172 {
-    animation: end_yellow 1s linear 3.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block173 {
-    animation: end_orange 1s linear 6.2s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block174 {
-    animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block175 {
-    animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block176 {
-    animation: end_purple 1s linear 8.6s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block177 {
-    animation: end_yellowgreen 1s linear 10.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block178 {
-    animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block179 {
-    animation: end_yellow 1s linear 13.4s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-#tetris-container.active .tetoris-content .tetoris-content__block180 {
-    animation: end_waterblue 1s linear 28.8s forwards, flash 0.6s ease-in-out 1 29s ;
-}
-@keyframes flash {
-    0% {
-        opacity: 0;
-   }
-    20% {
-        opacity: 1;
-   }
-    40% {
-        opacity: 0;
-   }
-    60% {
-        opacity: 1;
-   }
-    80% {
-        opacity: 0;
-   }
-    100% {
-        opacity: 1;
-   }
-}
-@-webkit-keyframes flash {
-    0% {
-        background-color: #fff;
-   }
-    20% {
-        background-color: #000;
-   }
-    40% {
-        background-color: #fff;
-   }
-    60% {
-        background-color: #000;
-   }
-    80% {
-        background-color: #fff;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes vibration {
-    0% {
-        transform: translateX(-50%) translateY(-50%);
-   }
-    50% {
-        transform: translateX(-50%) translateY(-49%);
-   }
-    100% {
-        transform: translateX(-50%) translateY(-50%);
-   }
-}
-@-webkit-keyframes vibration {
-    0% {
-        transform: translateX(-50%) translateY(-50%);
-   }
-    50% {
-        transform: translateX(-50%) translateY(-49%);
-   }
-    100% {
-        transform: translateX(-50%) translateY(-50%);
-   }
-}
-@keyframes end_gray {
-    0% {
-        background-color: #000;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes end_gray {
-    0% {
-        background-color: #000;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes flashing_orange {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #fe8600;
-   }
-    99.9% {
-        background-color: #fe8600;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_orange {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #fe8600;
-   }
-    99.9% {
-        background-color: #fe8600;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_orange {
-    0% {
-        background-color: #fe8600;
-   }
-    100% {
-        background-color: #fe8600;
-   }
-}
-@-webkit-keyframes end_orange {
-    0% {
-        background-color: #fe8600;
-   }
-    100% {
-        background-color: #fe8600;
-   }
-}
-@keyframes flashing_waterblue {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #01ffff;
-   }
-    99.9% {
-        background-color: #01ffff;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_waterblue {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #01ffff;
-   }
-    99.9% {
-        background-color: #01ffff;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_waterblue {
-    0% {
-        background-color: #01ffff;
-   }
-    100% {
-        background-color: #01ffff;
-   }
-}
-@-webkit-keyframes end_waterblue {
-    0% {
-        background-color: #01ffff;
-   }
-    100% {
-        background-color: #01ffff;
-   }
-}
-@keyframes flashing_yellowgreen {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-green);
-   }
-    99.9% {
-        background-color: var(--color-green);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_yellowgreen {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-green);
-   }
-    99.9% {
-        background-color: var(--color-green);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_yellowgreen {
-    0% {
-        background-color: var(--color-green);
-   }
-    100% {
-        background-color: var(--color-green);
-   }
-}
-@-webkit-keyframes end_yellowgreen {
-    0% {
-        background-color: var(--color-green);
-   }
-    100% {
-        background-color: var(--color-green);
-   }
-}
-@keyframes flashing_yellow {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-yellow);
-   }
-    99.9% {
-        background-color: var(--color-yellow);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_yellow {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-yellow);
-   }
-    99.9% {
-        background-color: var(--color-yellow);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_yellow {
-    0% {
-        background-color: var(--color-yellow);
-   }
-    100% {
-        background-color: var(--color-yellow);
-   }
-}
-@-webkit-keyframes end_yellow {
-    0% {
-        background-color: var(--color-yellow);
-   }
-    100% {
-        background-color: var(--color-yellow);
-   }
-}
-@keyframes flashing_red {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-orange);
-   }
-    99.9% {
-        background-color: var(--color-orange);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_red {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-orange);
-   }
-    99.9% {
-        background-color: var(--color-orange);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_red {
-    0% {
-        background-color: var(--color-orange);
-   }
-    100% {
-        background-color: var(--color-orange);
-   }
-}
-@-webkit-keyframes end_red {
-    0% {
-        background-color: var(--color-orange);
-   }
-    100% {
-        background-color: var(--color-orange);
-   }
-}
-@keyframes flashing_purple {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-blue);
-   }
-    99.9% {
-        background-color: var(--color-blue);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_purple {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: var(--color-blue);
-   }
-    99.9% {
-        background-color: var(--color-blue);
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_purple {
-    0% {
-        background-color: var(--color-blue);
-   }
-    100% {
-        background-color: var(--color-blue);
-   }
-}
-@-webkit-keyframes end_purple {
-    0% {
-        background-color: var(--color-blue);
-   }
-    100% {
-        background-color: var(--color-blue);
-   }
-}
-@keyframes flashing_blue {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #1e80ff;
-   }
-    99.9% {
-        background-color: #1e80ff;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@-webkit-keyframes flashing_blue {
-    0% {
-        background-color: #000;
-   }
-    0.1% {
-        background-color: #1e80ff;
-   }
-    99.9% {
-        background-color: #1e80ff;
-   }
-    100% {
-        background-color: #000;
-   }
-}
-@keyframes end_blue {
-    0% {
-        background-color: #1e80ff;
-   }
-    100% {
-        background-color: #1e80ff;
-   }
-}
-@-webkit-keyframes end_blue {
-    0% {
-        background-color: #1e80ff;
-   }
-    100% {
-        background-color: #1e80ff;
-   }
-}
+
+.tetris-text__wrapper :nth-child(5) .tetris-text__group :nth-child(1){
+  margin-left: -50%;   
+} 
+
+.tetris-text__wrapper :nth-child(7) .tetris-text__group :nth-child(1){
+  margin-left: -52%;   
+} 
+
+
+.tetris-text__wrapper :nth-child(13) .tetris-text__group :nth-child(1){
+  margin-left: -42%;   
+} 
+
+
+.tetris-text__wrapper :nth-child(15) .tetris-text__group :nth-child(1){
+  margin-left: -32%;   
+} 
