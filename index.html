@@ -1083,13 +1083,27 @@
         path: "./animations/nose.json", // The path to the animation JSON file
       });
     </script>
+ <script defer>
+  function isTouchDevice() {
+      return 'ontouchstart' in window || navigator.maxTouchPoints;
+  }
+  if (isTouchDevice()) {
+      document.write('<script src="./scripts/maze.js"><\/script>');
+  } 
+  else {
+    
+      document.write('<script src="./scripts/maze-desc.js"><\/script>');
+  }
+</script> 
 
-    <script src="./scripts/maze.js"></script>
     <script src="./scripts/eyes.js"></script>
     <script src="./scripts/puzzle.js"></script>
     <script src="./scripts/raznoobrazie.js"></script>
     <script src="./scripts/face.js"></script>
     <script src="./scripts/draw-section.js"></script>
     <script src="./scripts/tetris.js"></script>
+
+
+   
   </body>
 </html>
