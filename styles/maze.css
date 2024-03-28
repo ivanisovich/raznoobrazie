@@ -7,6 +7,11 @@
     fill: red;
 }
 
+.maze{
+    width: 100%;
+    max-width: 50%;
+}
+
 .third-sreen{
     display: flex;
     background: white;
