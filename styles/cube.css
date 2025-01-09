@@ -6,12 +6,12 @@ body{
 }
 
 .cube-container {
-  transform: scale(2.6);
+  transform: scale(2.3);
   height: 22em;
   
   position: relative;
   border-radius: 10%;
-  margin-top: 100px;
+  margin-top: 10vw;
   margin-left: calc(25vw - 350px);
 }
 .cube-container .rubiks-cube {
