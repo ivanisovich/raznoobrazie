@@ -2,6 +2,7 @@ body{
   --cell-size: 3.6em;
   --cell-mt: 0.25em;
   --cell-ml: -1.75em;
+     overflow-x: hidden;
 }
 
 .cube-container {
